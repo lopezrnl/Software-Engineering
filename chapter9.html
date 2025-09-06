@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Evolution | hungry shark evolution</title>
+    <link rel="icon" type="image/png" href="Derp-Pikachu.png">
+</head>
+
+<body>
+    <header>
+        <h2>Software Engineering</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="chapter2.html">Software Processes</a>
+            <a href="chapter8.html">Software Testing</a>
+            <a href="chapter9.html">Software Evolution</a>
+            <a href="chapter11.html">Dependability and Security</a>
+        </nav>
+        <br>
+        <hr>
+    </header>
+
+    <main>
+        <h1>Software Evolution</h1>
+        <hr>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="ron.jpg" alt="Software Engineering" width="1000" height="200">
+        </div>
+
+        <div>
+            <h2>Objectives</h2>
+            <ul>
+                <li>Understand that change is inevitable if software systems are to remain useful and that software
+                    development and evolution may be integrated in a spiral model;</li>
+                <li>Understand software evolution processes and influences on these processes;</li>
+                <li>Have learned about different types of software maintenance and the factors that affect maintenance
+                    costs;</li>
+                <li>Understand how legacy systems can be assessed to decide whether they should be maintained or
+                    replaced.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Contents</h2>
+            <section>
+                <li><b>9.1</b> Evolution processes</li>
+                <li><b>9.2</b> Program evolution dynamics</li>
+                <li><b>9.3</b> Software maintenance</li>
+                <li><b>9.4</b> Legacy system management</li>
+            </section>
+        </div>
+        <br>
+        <hr>
+
+        <div>
+            <h2>Introduction</h2>
+
+            <p>Software development does not stop when a system is delivered but continues
+                throughout the lifetime of the system. After a system has been deployed, it inevitably
+                has to change if it is to remain useful. Business changes and changes to user expectations generate new
+                requirements for the existing software. Parts of the software
+                may have to be modified to correct errors that are found in operation, to adapt it for
+                changes to its hardware and software platform, and to improve its performance or
+                other non-functional characteristics.</p>
+
+            <p>Software evolution is important because organizations have invested large
+                amounts of money in their software and are now completely dependent on these systems. Their systems are
+                critical business assets and they have to invest in system
+                change to maintain the value of these assets. Consequently, most large companies
+                spend more on maintaining existing systems than on new systems development.
+                Based on an informal industry poll, Erlikh (2000) suggests that 85–90% of organizational software costs
+                are evolution costs. Other surveys suggest that about two-thirds
+                of software costs are evolution costs. For sure, the costs of software change are a
+                large part of the IT budget for all companies.</p>
+
+            <p>Software evolution may be triggered by changing business requirements, by
+                reports of software defects, or by changes to other systems in a software system’s
+                environment. Hopkins and Jenkins (2008) have coined the term ‘brownfield software
+                development’ to describe situations in which software systems have to be developed
+                and managed in an environment where they are dependent on many other software
+                systems.</p>
+
+            <p>Therefore, the evolution of a system can rarely be considered in isolation.
+                Changes to the environment lead to system change that may then trigger further
+                environmental changes. Of course, the fact that systems have to evolve in a ‘systemsrich’ environment
+                often increases the difficulties and costs of evolution. As well as
+                understanding and analyzing an impact of a proposed change on the system itself,
+                you may also have to assess how this may affect other systems in the operational
+                environment.</p>
+
+            <p>Useful software systems often have a very long lifetime. For example, large military or infrastructure
+                systems, such as air traffic control systems, may have a lifetime
+                of 30 years or more. Business systems are often more than 10 years old. Software
+                cost a lot of money so a company has to use a software system for many years to get
+                a return on its investment. Obviously, the requirements of the installed systems
+                change as the business and its environment change. Therefore, new releases of the
+                systems, incorporating changes, and updates, are usually created at regular intervals.
+            </p>
+
+            <p>You should, therefore, think of software engineering as a spiral process with
+                requirements, design, implementation, and testing going on throughout the lifetime
+                of the system (Figure 9.1). You start by creating release 1 of the system. Once delivered, changes are
+                proposed and the development of release 2 starts almost immediately. In fact, the need for evolution may
+                become obvious even before the system is
+                deployed so that later releases of the software may be under development before the
+                current version has been released.</p>
+
+            <br>
+            <section style="display: flex; justify-content: center; align-items: center;">
+                <img src="figure9.1.png" alt="Spiral Model " width="500" height="300">
+            </section>
+            <p style="display: flex; justify-content: center;"><b>Figure 9.1 </b>| A spiral model of development and
+                evolution</p>
+
+            <br>
+            <p>This model of software evolution implies that a single organization is responsible
+                for both the initial software development and the evolution of the software. Most packaged software
+                products are developed using this approach. For custom software,
+                a different approach is commonly used. A software company develops software for a
+                customer and the customer’s own development staff then take over the system. They
+                are responsible for software evolution. Alternatively, the software customer might
+                issue a separate contract to a different company for system support and evolution.</p>
+
+            <p>In this case, there are likely to be discontinuities in the spiral process. Requirements
+                and design documents may not be passed from one company to another. Companies
+                may merge or reorganize and inherit software from other companies, and then find
+                that this has to be changed. When the transition from development to evolution is not
+                seamless, the process of changing the software after delivery is often called ‘software maintenance’. As
+                I discuss later in this chapter, maintenance involves extra
+                process activities, such as program understanding, in addition to the normal activities of software
+                development.</p>
+
+            <br>
+            <section style="display: flex; justify-content: center; align-items: center;">
+                <img src="figure9.2.png" alt="Evolution and Servicing" width="600" height="100">
+            </section>
+            <p style="display: flex; justify-content: center;"><b>Figure 9.2</b>| Evolution and servicing</p>
+            <br>
+
+            <p>Rajlich and Bennett (2000) proposed an alternative view of the software evolution
+                life cycle, as shown in Figure 9.2. In this model, they distinguish between evolution
+                and servicing. Evolution is the phase in which significant changes to the software
+                architecture and functionality may be made. During servicing, the only changes that
+                are made are relatively small, essential changes.</p>
+
+            <p>During evolution, the software is used successfully and there is a constant stream
+                of proposed requirements changes. However, as the software is modified, its structure tends to degrade
+                and changes become more and more expensive. This often happens after a few years of use when other
+                environmental changes, such as hardware
+                and operating systems, are also often required. At some stage in the life cycle, the
+                software reaches a transition point where significant changes, implementing new
+                requirements, become less and less cost effective.</p>
+
+            <p>At that stage, the software moves from evolution to servicing. During the servicing phase, the software
+                is still useful and used but only small tactical changes are
+                made to it. During this stage, the company is usually considering how the software
+                can be replaced. In the final stage, phase-out, the software may still be used but no
+                further changes are being implemented. Users have to work around any problems
+                that they discover.</p>
+        </div>
+
+        <br>
+        <hr>
+        <div>
+            <h2>9.1 Evolution Processes</h2>
+
+            <p>Software evolution processes vary depending on the type of software being maintained, the development
+                processes used in an organization and the skills of the people involved. In some organizations,
+                evolution may be an informal process where
+                change requests mostly come from conversations between the system users and
+                developers. In other companies, it is a formalized process with structured documentation produced at
+                each stage in the process.
+            </p>
+
+            <br>
+            <section style="display: flex; justify-content: center; align-items: center;">
+                <img src="figure9.3.png" alt="A generic software evolution process" width="400" height="260">
+            </section>
+            <p style="display: flex; justify-content: center;"><b>Figure 9.3</b>| Change identification and evolution
+                processes</p>
+            <br>
+
+            <p>System change proposals are the driver for system evolution in all organizations.
+                Change proposals may come from existing requirements that have not been implemented in the released
+                system, requests for new requirements, bug reports from system
+                stakeholders, and new ideas for software improvement from the system development
+                team. The processes of change identification and system evolution are cyclic and
+                continue throughout the lifetime of a system (Figure 9.3).
+            </p>
+
+            <p>Change proposals should be linked to the components of the system that have to
+                be modified to implement these proposals. This allows the cost and the impact of the
+                change to be assessed. This is part of the general process of change management,
+                which also should ensure that the correct versions of components are included in
+                each system release. I cover change and configuration management in Chapter 25.
+            </p>
+
+            <br>
+            <section style="display: flex; justify-content: center; align-items: center;">
+                <img src="figure9.4.png" alt="A generic software evolution process" width="600" height="200">
+            </section>
+            <p style="display: flex; justify-content: center;"><b>Figure 9.4</b> | The software evolution process</p>
+            <br>
+
+            <p>Figure 9.4, adapted from Arthur (1988), shows an overview of the evolution process.
+                The process includes the fundamental activities of change analysis, release planning,
+                system implementation, and releasing a system to customers. The cost and impact of
+                these changes are assessed to see how much of the system is affected by the change and
+                how much it might cost to implement the change. If the proposed changes are accepted,
+                a new release of the system is planned. During release planning, all proposed changes
+                (fault repair, adaptation, and new functionality) are considered. A decision is then made
+                on which changes to implement in the next version of the system. The changes are
+                implemented and validated, and a new version of the system is released. The process
+                then iterates with a new set of changes proposed for the next release.
+            </p>
+
+
+            <p>
+                You can think of change implementation as an iteration of the development
+                process, where the revisions to the system are designed, implemented, and tested.
+                However, a critical difference is that the first stage of change implementation may
+                involve program understanding, especially if the original system developers are not
+                responsible for change implementation. During this program understanding phase,
+                you have to understand how the program is structured, how it delivers functionality,
+                and how the proposed change might affect the program. You need this understanding
+                to make sure that the implemented change does not cause new problems when it is
+                introduced into the existing system.
+            </p>
+
+            <p>
+                Ideally, the change implementation stage of this process should modify the system specification, design,
+                and implementation to reflect the changes to the system
+                (Figure 9.5). New requirements that reflect the system changes are proposed, analyzed, and validated.
+                System components are redesigned and implemented and the
+                system is retested. If appropriate, prototyping of the proposed changes may be carried out as part of
+                the change analysis process.
+            </p>
+
+            <p>
+                During the evolution process, the requirements are analyzed in detail and implications of the changes
+                emerge that were not apparent in the earlier change analysis
+                process. This means that the proposed changes may be modified and further customer discussions may be
+                required before they are implemented.
+            </p>
+
+            <section>
+                <p>
+                    Change requests sometimes relate to system problems that have to be tackled
+                    urgently. These urgent changes can arise for three reasons:
+                </p>
+
+                <ol>
+                    <li>If a serious system fault occurs that has to be repaired to allow normal operation to continue.
+                    </li>
+                    <li>If changes to the system's operating environment have unexpected effects that disrupt normal
+                        operation.</li>
+                    <li>If there are unanticipated changes to the business running the system, such as the emergence of
+                        new competitors or the introduction of new legislation that affects the system.</li>
+                </ol>
+            </section>
+
+            <section>
+                <article style="display: flex; justify-content: center;">
+                    <img src="figure9.5.png" alt="figure 9.5" width="500" height="100">
+                </article>
+                <p style="display: flex; justify-content: center;"><b>Figure 9.5 </b>| Change implementation</p>
+            </section>
+
+            <section>
+                <article style="display: flex; justify-content: center;">
+                    <img src="figure9.6.png" alt="figure 9.6" width="500" height="85">
+                </article>
+                <p style="display: flex; justify-content: center;"><b>Figure 9.6</b>| The emergency repair process</p>
+            </section>
+
+            <p>
+                In these cases, the need to make the change quickly means that you may not be
+                able to follow the formal change analysis process. Rather than modify the requirements and design, you
+                make an emergency fix to the program to solve the immediate problem (Figure 9.6). However, the danger is
+                that the requirements, the software
+                design, and the code become inconsistent. Although you may intend to document
+                the change in the requirements and design, additional emergency fixes to the software may then be
+                needed. These take priority over documentation. Eventually, the
+                original change is forgotten and the system documentation and code are never
+                realigned.
+            </p>
+
+            <p>
+                Emergency system repairs usually have to be completed as quickly as possible.
+                You chose a quick and workable solution rather than the best solution as far as system structure is
+                concerned. This accelerates the process of software ageing so that
+                future changes become progressively more difficult and maintenance costs increase.
+            </p>
+
+            <p>
+                Ideally, when emergency code repairs are made the change request should remain
+                outstanding after the code faults have been fixed. It can then be reimplemented more
+                carefully after further analysis. Of course, the code of the repair may be reused. An
+                alternative, better solution to the problem may be discovered when more time is
+                available for analysis. In practice, however, it is almost inevitable that these improvements will have
+                a low priority. They are often forgotten and, if further system
+                changes are made, it then becomes unrealistic to redo the emergency repairs.
+            </p>
+
+            <p>
+                Agile methods and processes, discussed in Chapter 3, may be used for program
+                evolution as well as program development. In fact, because these methods are based
+                on incremental development, making the transition from agile development to postdelivery evolution
+                should be seamless. Techniques such as automated regression testing
+                are useful when system changes are made. Changes may be expressed as user stories
+                and customer involvement can prioritize changes that are required in an operational
+                system. In short, evolution simply involves continuing the agile development process.
+            </p>
+
+            <section>
+                <p>
+                    However, problems may arise in situations in which there is a handover from a
+                    development team to a separate team responsible for evolution. There are two potentially problematic
+                    situations:
+                </p>
+
+                <ol>
+                    <li>
+                        Where the development team has used an agile approach but the evolution team
+                        is unfamiliar with agile methods and prefers a plan-based approach. The evolution team may
+                        expect detailed documentation to support evolution and this is
+                        rarely produced in agile processes. There may be no definitive statement of the
+                        system requirements that can be modified as changes are made to the system.
+                    </li>
+                    <br>
+                    <li>
+                        Where a plan-based approach has been used for development but the evolution
+                        team prefers to use agile methods. In this case, the evolution team may have to
+                        start from scratch developing automated tests and the code in the system may
+                        not have been refactored and simplified as is expected in agile development. In
+                        this case, some reengineering may be required to improve the code before it can
+                        be used in an agile development process.
+                    </li>
+                </ol>
+            </section>
+
+            <p>
+                Poole and Huisman (2001) report on their experiences in using Extreme Programming
+                for maintaining a large system that was originally developed using a plan-based
+                approach. After reengineering the system to improve its structure, XP was used very
+                successfully in the maintenance process.
+            </p>
+
+        </div>
+        <br>
+        <hr>
+
+        <div>
+            <h2>9.2 Program Evolution Dynamics</h2>
+
+            <p>
+                Program evolution dynamics is the study of system change. In the 1970s and 1980s,
+                Lehman and Belady (1985) carried out several empirical studies of system change
+                with a view to understanding more about characteristics of software evolution. The
+                work continued in the 1990s as Lehman and others investigated the significance of
+                feedback in evolution processes (Lehman, 1996; Lehman et al., 1998; Lehman et al.,
+                2001). From these studies, they proposed ‘Lehman’s laws’ concerning system change
+                (Figure 9.7).
+            </p>
+
+            <br>
+            <section style="display: flex; justify-content: center;">
+                <img src="figure9.7.png" alt="figure 9.7" width="550" height="350">
+            </section>
+            <p style="display: flex; justify-content: center;"><b>Figure 9.7 </b>| Lehman’s laws</p>
+            <br>
+
+            <p>
+                Lehman and Belady claim these laws are likely to be true for all types of large
+                organizational software systems (what they call E-type systems). These are systems
+                in which the requirements are changing to reflect changing business needs. New
+                releases of the system are essential for the system to provide business value.
+            </p>
+
+            <p>
+                The first law states that system maintenance is an inevitable process. As the system’s environment
+                changes, new requirements emerge and the system must be modified. When the modified system is
+                reintroduced to the environment, this promotes
+                more environmental changes, so the evolution process starts again.
+            </p>
+
+            <p>
+                The second law states that, as a system is changed, its structure is degraded. The only
+                way to avoid this happening is to invest in preventative maintenance. You spend time
+                improving the software structure without adding to its functionality. Obviously, this
+                means additional costs, over and above those of implementing required system changes.
+            </p>
+
+            <p>
+                The third law is, perhaps, the most interesting and the most contentious of
+                Lehman’s laws. It suggests that large systems have a dynamic of their own that is
+                established at an early stage in the development process. This determines the gross
+                trends of the system maintenance process and limits the number of possible system
+                changes. Lehman and Belady suggest that this law is a consequence of structural factors that influence
+                and constrain system change, and organizational factors that
+                affect the evolution process.
+            </p>
+
+            <p>
+                The structural factors that affect the third law come from the complexity of large
+                systems. As you change and extend a program, its structure tends to degrade. This is
+                true of all types of system (not just software) and it occurs because you are adapting
+                a structure intended for one purpose for a different purpose. This degradation, if
+                unchecked, makes it more and more difficult to make further changes to the program. Making small changes
+                reduces the extent of structural degradation and so
+                lessens the risks of causing serious system dependability problems. If you try and
+                make large changes, there is a high probability that these will introduce new faults.
+                These then inhibit further program changes.
+            </p>
+
+            <p>
+                The organizational factors that affect the third law reflect the fact that large systems are usually
+                produced by large organizations. These companies have internal
+                bureaucracies that set the change budget for each system and control the decisionmaking process.
+                Companies have to make decisions on the risks and value of the changes and the costs involved. Such
+                decisions take time to make and, sometimes, it
+                takes longer to decide on the changes to be made than change implementation. The
+                speed of the organization’s decision-making processes therefore governs the rate of
+                change of the system
+            </p>
+
+            <p>
+                Lehman’s fourth law suggests that most large programming projects work in a
+                ‘saturated’ state. That is, a change to resources or staffing has imperceptible effects
+                on the long-term evolution of the system. This is consistent with the third law, which
+                suggests that program evolution is largely independent of management decisions.
+                This law confirms that large software development teams are often unproductive
+                because communication overheads dominate the work of the team.
+            </p>
+
+            <p>
+                Lehman’s fifth law is concerned with the change increments in each system
+                release. Adding new functionality to a system inevitably introduces new system
+                faults. The more functionality added in each release, the more faults there will be.
+                Therefore, a large increment in functionality in one system release means that this
+                will have to be followed by a further release in which the new system faults are
+                repaired. Relatively little new functionality should be included in this release. This
+                law suggests that you should not budget for large functionality increments in each
+                release without taking into account the need for fault repair.
+            </p>
+
+            <p>
+                The first five laws were in Lehman’s initial proposals; the remaining laws were
+                added after further work. The sixth and seventh laws are similar and essentially say
+                that users of software will become increasingly unhappy with it unless it is maintained and new
+                functionality is added to it. The final law reflects the most recent
+                work on feedback processes, although it is not yet clear how this can be applied in
+                practical software development.
+            </p>
+
+            <p>
+                Lehman’s observations seem generally sensible. They should be taken into
+                account when planning the maintenance process. It may be that business considerations require them to be
+                ignored at any one time. For example, for marketing reasons, it may be necessary to make several major
+                system changes in a single release.
+                The likely consequences of this are that one or more releases devoted to error repair
+                are likely to be required. You often see this in personal computer software when a
+                major new release of an application is often quickly followed by a bug repair update.
+            </p>
+        </div>
+        <br>
+        <hr>
+
+        <div>
+            <h2>
+                9.3 Software maintenance
+            </h2>
+
+            <p>
+                Software maintenance is the general process of changing a system after it has been
+                delivered. The term is usually applied to custom software in which separate development groups are
+                involved before and after delivery. The changes made to the software
+                may be simple changes to correct coding errors, more extensive changes to correct
+                design errors, or significant enhancements to correct specification errors or accommodate new
+                requirements. Changes are implemented by modifying existing system
+                components and, where necessary, by adding new components to the system.
+            </p>
+
+            <section>
+                <p>
+                    There are three different types of software maintenance:
+                </p>
+
+                <ol>
+                    <li>
+                        Fault repairs Coding errors are usually relatively cheap to correct; design errors
+                        are more expensive as they may involve rewriting several program components.
+                        Requirements errors are the most expensive to repair because of the extensive
+                        system redesign which may be necessary.
+                    </li>
+
+                    <li>
+                        Environmental adaptation This type of maintenance is required when some
+                        aspect of the system’s environment such as the hardware, the platform operating
+                        system, or other support software changes. The application system must be
+                        modified to adapt it to cope with these environmental changes.
+                    </li>
+
+                    <li>
+                        Functionality addition This type of maintenance is necessary when the system
+                        requirements change in response to organizational or business change. The scale
+                        of the changes required to the software is often much greater than for the other
+                        types of maintenance.
+                    </li>
+                </ol>
+            </section>
+
+            <p>
+                In practice, there is not a clear-cut distinction between these types of maintenance. When you adapt the
+                system to a new environment, you may add functionality
+                to take advantage of new environmental features. Software faults are often exposed
+                because users use the system in unanticipated ways. Changing the system to accommodate their way of
+                working is the best way to fix these faults.
+            </p>
+
+            <p>
+                These types of maintenance are generally recognized but different people sometimes give them different
+                names. ‘Corrective maintenance’ is universally used to
+                refer to maintenance for fault repair. However, ‘adaptive maintenance’ sometimes
+                means adapting to a new environment and sometimes means adapting the software to
+                new requirements. ‘Perfective maintenance’ sometimes means perfecting the software by implementing new
+                requirements; in other cases it means maintaining the
+                functionality of the system but improving its structure and its performance. Because
+                of this naming uncertainty, I have avoided the use of all of these terms in this chapter.
+            </p>
+
+            <p>
+                There have been several studies of software maintenance which have looked at
+                the relationships between maintenance and development and between different
+                maintenance activities (Krogstie et al., 2005; Lientz and Swanson, 1980; Nosek and
+                Palvia, 1990; Sousa, 1998). Because of differences in terminology, the details of
+                these studies cannot be compared. In spite of changes in technology and different
+                application domains, it seems that there has been remarkably little change in the distribution of
+                evolution effort since the 1980s.
+            </p>
+
+            <p>
+                The surveys broadly agree that software maintenance takes up a higher proportion
+                of IT budgets than new development (roughly two-thirds maintenance, one-third
+                development). They also agree that more of the maintenance budget is spent on
+                implementing new requirements than on fixing bugs. Figure 9.8 shows an approximate distribution of
+                maintenance costs. The specific percentages will obviously vary
+                from one organization to another but, universally, repairing system faults is not the
+                most expensive maintenance activity. Evolving the system to cope with new environments and new or
+                changed requirements consumes most maintenance effort.
+            </p>
+
+            <br>
+            <section style="display: flex; justify-content: center;">
+                <img src="9.8.png" alt="figure 9.8" width="450" height="360">
+            </section>
+            <p style="display: flex; justify-content: center;"><b>Figure 9.8</b>| Maintenance effort distribution</p>
+            <br>
+
+            <p>
+                The relative costs of maintenance and new development vary from one application domain to another.
+                Guimaraes (1983) found that the maintenance costs for business application systems are broadly
+                comparable with system development costs.
+                For embedded real-time systems, maintenance costs were up to four times more than
+                development costs. The high reliability and performance requirements of these systems mean that modules
+                have to be tightly linked and hence difficult to change.
+                Although these estimates are more than 25 years old, it is unlikely that the cost distributions for
+                different types of system have significantly changed.
+            </p>
+
+            <p>
+                It is usually cost effective to invest effort in designing and implementing a system to
+                reduce the costs of future changes. Adding new functionality after delivery is expensive
+                because you have to spend time learning the system and analyzing the impact of the proposed changes.
+                Therefore, work done during development to make the software easier
+                to understand and change is likely to reduce evolution costs. Good software engineering
+                techniques, such as precise specification, the use of object-oriented development, and
+                configuration management, contribute to maintenance cost reduction.
+            </p>
+
+            <p>
+                Figure 9.9 shows how overall lifetime costs may decrease as more effort is
+                expended during system development to produce a maintainable system. Because of
+                the potential reduction in costs of understanding, analysis, and testing, there is a significant
+                multiplier effect when the system is developed for maintainability. For
+                System 1, extra development costs of $25,000 are invested in making the system
+                more maintainable. This results in a savings of $100,000 in maintenance costs over
+            </p>
+
+            <br>
+            <section style="display: flex; justify-content: center;">
+                <img src="9.9.png" alt="figure 9.9" width="400" height="160">
+            </section>
+            <p style="display: flex; justify-content: center;"><b>Figure 9.9</b>| Development and maintenance costs</p>
+            <br>
+
+            <p>
+                
+            </p>
+        </div>
+    </main>
+
+</body>
+
+</html>
