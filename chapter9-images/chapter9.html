@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Evolution | hungry shark evolution</title>
+    <link rel="icon" type="image/png" href="Derp-Pikachu.png">
+</head>
+
+<style>
+    main{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: red;
+        background-color: aliceblue;
+    }
+</style>
+
+<body>
+    <header>
+        <div
+            style="display: flex; justify-content: space-between; align-items: center; padding-left: 2%; padding-right: 2%;">
+            <section style="display: flex; align-items: center; flex-direction: row;">
+                <img src="Derp-Pikachu.png" alt="icon" width="50" height="50" style="margin-right:10px;">
+                <h2 style="margin:0;">Software Engineering</h2>
+            </section>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="chapter2.html">Software Processes</a>
+                <a href="chapter8.html">Software Testing</a>
+                <a href="chapter9.html">Software Evolution</a>
+                <a href="chapter11.html">Dependability and Security</a>
+            </nav>
+        </div>
+        <hr>
+    </header>
+
+    <main style="text-align: justify; margin-left: 15%; margin-right: 15%;">
+        <h1>Software Evolution</h1>
+        <hr>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="ron.jpg" alt="Software Engineering" width="1000" height="200">
+        </div>
+
+        <div>
+            <h2>Objectives</h2>
+            <ul>
+                <li>Understand that change is inevitable if software systems are to remain useful and that software
+                    development and evolution may be integrated in a spiral model;</li>
+                <li>Understand software evolution processes and influences on these processes;</li>
+                <li>Have learned about different types of software maintenance and the factors that affect maintenance
+                    costs;</li>
+                <li>Understand how legacy systems can be assessed to decide whether they should be maintained or
+                    replaced.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Contents</h2>
+            <section>
+                <ul style="list-style-type: none; padding: 1; margin: 0;">
+                    <li><b>9.1</b> Evolution processes</li>
+                    <li><b>9.2</b> Program evolution dynamics</li>
+                    <li><b>9.3</b> Software maintenance</li>
+                    <li><b>9.4</b> Legacy system management</li>
+                </ul>
+            </section>
+        </div>
+        <br>
+        <hr>
+
+        <div>
+            <h2>Introduction</h2>
+
+            <p>Software development does not stop when a system is delivered but continues
+                throughout the lifetime of the system. After a system has been deployed, it inevitably
+                has to change if it is to remain useful. Business changes and changes to user expectations generate new
+                requirements for the existing software. Parts of the software
+                may have to be modified to correct errors that are found in operation, to adapt it for
+                changes to its hardware and software platform, and to improve its performance or
+                other non-functional characteristics.</p>
+
+            <p>Software evolution is important because organizations have invested large
+                amounts of money in their software and are now completely dependent on these systems. Their systems are
+                critical business assets and they have to invest in system
+                change to maintain the value of these assets. Consequently, most large companies
+                spend more on maintaining existing systems than on new systems development.
+                Based on an informal industry poll, Erlikh (2000) suggests that 85–90% of organizational software costs
+                are evolution costs. Other surveys suggest that about two-thirds
+                of software costs are evolution costs. For sure, the costs of software change are a
+                large part of the IT budget for all companies.</p>
+
+            <p>Software evolution may be triggered by changing business requirements, by
+                reports of software defects, or by changes to other systems in a software system’s
+                environment. Hopkins and Jenkins (2008) have coined the term ‘brownfield software
+                development’ to describe situations in which software systems have to be developed
+                and managed in an environment where they are dependent on many other software
+                systems.</p>
+
+            <p>Therefore, the evolution of a system can rarely be considered in isolation.
+                Changes to the environment lead to system change that may then trigger further
+                environmental changes. Of course, the fact that systems have to evolve in a ‘systemsrich’ environment
+                often increases the difficulties and costs of evolution. As well as
+                understanding and analyzing an impact of a proposed change on the system itself,
+                you may also have to assess how this may affect other systems in the operational
+                environment.</p>
+
+            <p>Useful software systems often have a very long lifetime. For example, large military or infrastructure
+                systems, such as air traffic control systems, may have a lifetime
+                of 30 years or more. Business systems are often more than 10 years old. Software
+                cost a lot of money so a company has to use a software system for many years to get
+                a return on its investment. Obviously, the requirements of the installed systems
+                change as the business and its environment change. Therefore, new releases of the
+                systems, incorporating changes, and updates, are usually created at regular intervals.
+            </p>
+
+            <p>You should, therefore, think of software engineering as a spiral process with
+                requirements, design, implementation, and testing going on throughout the lifetime
+                of the system (Figure 9.1). You start by creating release 1 of the system. Once delivered, changes are
+                proposed and the development of release 2 starts almost immediately. In fact, the need for evolution may
+                become obvious even before the system is
+                deployed so that later releases of the software may be under development before the
+                current version has been released.</p>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center; align-items: center;">
+                    <img src="figure9.1.png" alt="Spiral Model " width="500" height="300">
+                </article>
+                <p style="text-align: center;"><b>Figure 9.1 </b> | A spiral model of development and
+                    evolution</p>
+                <br>
+            </section>
+
+            <p>This model of software evolution implies that a single organization is responsible
+                for both the initial software development and the evolution of the software. Most packaged software
+                products are developed using this approach. For custom software,
+                a different approach is commonly used. A software company develops software for a
+                customer and the customer’s own development staff then take over the system. They
+                are responsible for software evolution. Alternatively, the software customer might
+                issue a separate contract to a different company for system support and evolution.</p>
+
+            <p>In this case, there are likely to be discontinuities in the spiral process. Requirements
+                and design documents may not be passed from one company to another. Companies
+                may merge or reorganize and inherit software from other companies, and then find
+                that this has to be changed. When the transition from development to evolution is not
+                seamless, the process of changing the software after delivery is often called ‘software maintenance’. As
+                I discuss later in this chapter, maintenance involves extra
+                process activities, such as program understanding, in addition to the normal activities of software
+                development.</p>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center; align-items: center;">
+                    <img src="figure9.2.png" alt="Evolution and Servicing" width="600" height="100">
+                </article>
+                <p style="text-align: center;"><b>Figure 9.2</b> | Evolution and servicing</p>
+                <br>
+            </section>
+
+            <p>Rajlich and Bennett (2000) proposed an alternative view of the software evolution
+                life cycle, as shown in Figure 9.2. In this model, they distinguish between evolution
+                and servicing. Evolution is the phase in which significant changes to the software
+                architecture and functionality may be made. During servicing, the only changes that
+                are made are relatively small, essential changes.</p>
+
+            <p>During evolution, the software is used successfully and there is a constant stream
+                of proposed requirements changes. However, as the software is modified, its structure tends to degrade
+                and changes become more and more expensive. This often happens after a few years of use when other
+                environmental changes, such as hardware
+                and operating systems, are also often required. At some stage in the life cycle, the
+                software reaches a transition point where significant changes, implementing new
+                requirements, become less and less cost effective.</p>
+
+            <p>At that stage, the software moves from evolution to servicing. During the servicing phase, the software
+                is still useful and used but only small tactical changes are
+                made to it. During this stage, the company is usually considering how the software
+                can be replaced. In the final stage, phase-out, the software may still be used but no
+                further changes are being implemented. Users have to work around any problems
+                that they discover.</p>
+        </div>
+
+        <br>
+        <hr>
+        <div>
+            <h2>9.1 Evolution Processes</h2>
+
+            <p>Software evolution processes vary depending on the type of software being maintained, the development
+                processes used in an organization and the skills of the people involved. In some organizations,
+                evolution may be an informal process where
+                change requests mostly come from conversations between the system users and
+                developers. In other companies, it is a formalized process with structured documentation produced at
+                each stage in the process.
+            </p>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center; align-items: center;">
+                    <img src="figure9.3.png" alt="A generic software evolution process" width="400" height="260">
+                </article>
+                <p style="text-align: center;"><b>Figure 9.3</b> | Change identification and evolution
+                    processes</p>
+                <br>
+            </section>
+
+            <p>System change proposals are the driver for system evolution in all organizations.
+                Change proposals may come from existing requirements that have not been implemented in the released
+                system, requests for new requirements, bug reports from system
+                stakeholders, and new ideas for software improvement from the system development
+                team. The processes of change identification and system evolution are cyclic and
+                continue throughout the lifetime of a system (Figure 9.3).
+            </p>
+
+            <p>Change proposals should be linked to the components of the system that have to
+                be modified to implement these proposals. This allows the cost and the impact of the
+                change to be assessed. This is part of the general process of change management,
+                which also should ensure that the correct versions of components are included in
+                each system release. I cover change and configuration management in Chapter 25.
+            </p>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center; align-items: center;">
+                    <img src="figure9.4.png" alt="A generic software evolution process" width="600" height="200">
+                </article>
+                <p style="text-align: center;"><b>Figure 9.4</b> | The software evolution process</p>
+                <br>
+            </section>
+
+            <p>Figure 9.4, adapted from Arthur (1988), shows an overview of the evolution process.
+                The process includes the fundamental activities of change analysis, release planning,
+                system implementation, and releasing a system to customers. The cost and impact of
+                these changes are assessed to see how much of the system is affected by the change and
+                how much it might cost to implement the change. If the proposed changes are accepted,
+                a new release of the system is planned. During release planning, all proposed changes
+                (fault repair, adaptation, and new functionality) are considered. A decision is then made
+                on which changes to implement in the next version of the system. The changes are
+                implemented and validated, and a new version of the system is released. The process
+                then iterates with a new set of changes proposed for the next release.
+            </p>
+
+
+            <p>
+                You can think of change implementation as an iteration of the development
+                process, where the revisions to the system are designed, implemented, and tested.
+                However, a critical difference is that the first stage of change implementation may
+                involve program understanding, especially if the original system developers are not
+                responsible for change implementation. During this program understanding phase,
+                you have to understand how the program is structured, how it delivers functionality,
+                and how the proposed change might affect the program. You need this understanding
+                to make sure that the implemented change does not cause new problems when it is
+                introduced into the existing system.
+            </p>
+
+            <p>
+                Ideally, the change implementation stage of this process should modify the system specification, design,
+                and implementation to reflect the changes to the system
+                (Figure 9.5). New requirements that reflect the system changes are proposed, analyzed, and validated.
+                System components are redesigned and implemented and the
+                system is retested. If appropriate, prototyping of the proposed changes may be carried out as part of
+                the change analysis process.
+            </p>
+
+            <p>
+                During the evolution process, the requirements are analyzed in detail and implications of the changes
+                emerge that were not apparent in the earlier change analysis
+                process. This means that the proposed changes may be modified and further customer discussions may be
+                required before they are implemented.
+            </p>
+
+            <section>
+                <p>
+                    Change requests sometimes relate to system problems that have to be tackled
+                    urgently. These urgent changes can arise for three reasons:
+                </p>
+
+                <ol>
+                    <li>If a serious system fault occurs that has to be repaired to allow normal operation to continue.
+                    </li>
+                    <li>If changes to the system's operating environment have unexpected effects that disrupt normal
+                        operation.</li>
+                    <li>If there are unanticipated changes to the business running the system, such as the emergence of
+                        new competitors or the introduction of new legislation that affects the system.</li>
+                </ol>
+            </section>
+
+            <section>
+                <article style="display: flex; justify-content: center;">
+                    <img src="figure9.5.png" alt="figure 9.5" width="500" height="100">
+                </article>
+                <p style="text-align: center;"><b>Figure 9.5 </b> | Change implementation</p>
+            </section>
+
+            <section>
+                <article style="display: flex; justify-content: center;">
+                    <img src="figure9.6.png" alt="figure 9.6" width="500" height="85">
+                </article>
+                <p style="text-align: center;"><b>Figure 9.6</b> | The emergency repair process</p>
+            </section>
+
+            <p>
+                In these cases, the need to make the change quickly means that you may not be
+                able to follow the formal change analysis process. Rather than modify the requirements and design, you
+                make an emergency fix to the program to solve the immediate problem (Figure 9.6). However, the danger is
+                that the requirements, the software
+                design, and the code become inconsistent. Although you may intend to document
+                the change in the requirements and design, additional emergency fixes to the software may then be
+                needed. These take priority over documentation. Eventually, the
+                original change is forgotten and the system documentation and code are never
+                realigned.
+            </p>
+
+            <p>
+                Emergency system repairs usually have to be completed as quickly as possible.
+                You chose a quick and workable solution rather than the best solution as far as system structure is
+                concerned. This accelerates the process of software ageing so that
+                future changes become progressively more difficult and maintenance costs increase.
+            </p>
+
+            <p>
+                Ideally, when emergency code repairs are made the change request should remain
+                outstanding after the code faults have been fixed. It can then be reimplemented more
+                carefully after further analysis. Of course, the code of the repair may be reused. An
+                alternative, better solution to the problem may be discovered when more time is
+                available for analysis. In practice, however, it is almost inevitable that these improvements will have
+                a low priority. They are often forgotten and, if further system
+                changes are made, it then becomes unrealistic to redo the emergency repairs.
+            </p>
+
+            <p>
+                Agile methods and processes, discussed in Chapter 3, may be used for program
+                evolution as well as program development. In fact, because these methods are based
+                on incremental development, making the transition from agile development to postdelivery evolution
+                should be seamless. Techniques such as automated regression testing
+                are useful when system changes are made. Changes may be expressed as user stories
+                and customer involvement can prioritize changes that are required in an operational
+                system. In short, evolution simply involves continuing the agile development process.
+            </p>
+
+            <section>
+                <p>
+                    However, problems may arise in situations in which there is a handover from a
+                    development team to a separate team responsible for evolution. There are two potentially problematic
+                    situations:
+                </p>
+
+                <ol>
+                    <li>
+                        Where the development team has used an agile approach but the evolution team
+                        is unfamiliar with agile methods and prefers a plan-based approach. The evolution team may
+                        expect detailed documentation to support evolution and this is
+                        rarely produced in agile processes. There may be no definitive statement of the
+                        system requirements that can be modified as changes are made to the system.
+                    </li>
+                    <br>
+                    <li>
+                        Where a plan-based approach has been used for development but the evolution
+                        team prefers to use agile methods. In this case, the evolution team may have to
+                        start from scratch developing automated tests and the code in the system may
+                        not have been refactored and simplified as is expected in agile development. In
+                        this case, some reengineering may be required to improve the code before it can
+                        be used in an agile development process.
+                    </li>
+                </ol>
+            </section>
+
+            <p>
+                Poole and Huisman (2001) report on their experiences in using Extreme Programming
+                for maintaining a large system that was originally developed using a plan-based
+                approach. After reengineering the system to improve its structure, XP was used very
+                successfully in the maintenance process.
+            </p>
+
+        </div>
+        <br>
+        <hr>
+
+        <div>
+            <h2>9.2 Program Evolution Dynamics</h2>
+
+            <p>
+                Program evolution dynamics is the study of system change. In the 1970s and 1980s,
+                Lehman and Belady (1985) carried out several empirical studies of system change
+                with a view to understanding more about characteristics of software evolution. The
+                work continued in the 1990s as Lehman and others investigated the significance of
+                feedback in evolution processes (Lehman, 1996; Lehman et al., 1998; Lehman et al.,
+                2001). From these studies, they proposed ‘Lehman’s laws’ concerning system change
+                (Figure 9.7).
+            </p>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center;">
+                    <img src="figure9.7.png" alt="figure 9.7" width="550" height="350">
+                </article>
+                <p style="text-align: center;"><b>Figure 9.7 </b> | Lehman’s laws</p>
+                <br>
+            </section>
+
+            <p>
+                Lehman and Belady claim these laws are likely to be true for all types of large
+                organizational software systems (what they call E-type systems). These are systems
+                in which the requirements are changing to reflect changing business needs. New
+                releases of the system are essential for the system to provide business value.
+            </p>
+
+            <p>
+                The first law states that system maintenance is an inevitable process. As the system’s environment
+                changes, new requirements emerge and the system must be modified. When the modified system is
+                reintroduced to the environment, this promotes
+                more environmental changes, so the evolution process starts again.
+            </p>
+
+            <p>
+                The second law states that, as a system is changed, its structure is degraded. The only
+                way to avoid this happening is to invest in preventative maintenance. You spend time
+                improving the software structure without adding to its functionality. Obviously, this
+                means additional costs, over and above those of implementing required system changes.
+            </p>
+
+            <p>
+                The third law is, perhaps, the most interesting and the most contentious of
+                Lehman’s laws. It suggests that large systems have a dynamic of their own that is
+                established at an early stage in the development process. This determines the gross
+                trends of the system maintenance process and limits the number of possible system
+                changes. Lehman and Belady suggest that this law is a consequence of structural factors that influence
+                and constrain system change, and organizational factors that
+                affect the evolution process.
+            </p>
+
+            <p>
+                The structural factors that affect the third law come from the complexity of large
+                systems. As you change and extend a program, its structure tends to degrade. This is
+                true of all types of system (not just software) and it occurs because you are adapting
+                a structure intended for one purpose for a different purpose. This degradation, if
+                unchecked, makes it more and more difficult to make further changes to the program. Making small changes
+                reduces the extent of structural degradation and so
+                lessens the risks of causing serious system dependability problems. If you try and
+                make large changes, there is a high probability that these will introduce new faults.
+                These then inhibit further program changes.
+            </p>
+
+            <p>
+                The organizational factors that affect the third law reflect the fact that large systems are usually
+                produced by large organizations. These companies have internal
+                bureaucracies that set the change budget for each system and control the decisionmaking process.
+                Companies have to make decisions on the risks and value of the changes and the costs involved. Such
+                decisions take time to make and, sometimes, it
+                takes longer to decide on the changes to be made than change implementation. The
+                speed of the organization’s decision-making processes therefore governs the rate of
+                change of the system
+            </p>
+
+            <p>
+                Lehman’s fourth law suggests that most large programming projects work in a
+                ‘saturated’ state. That is, a change to resources or staffing has imperceptible effects
+                on the long-term evolution of the system. This is consistent with the third law, which
+                suggests that program evolution is largely independent of management decisions.
+                This law confirms that large software development teams are often unproductive
+                because communication overheads dominate the work of the team.
+            </p>
+
+            <p>
+                Lehman’s fifth law is concerned with the change increments in each system
+                release. Adding new functionality to a system inevitably introduces new system
+                faults. The more functionality added in each release, the more faults there will be.
+                Therefore, a large increment in functionality in one system release means that this
+                will have to be followed by a further release in which the new system faults are
+                repaired. Relatively little new functionality should be included in this release. This
+                law suggests that you should not budget for large functionality increments in each
+                release without taking into account the need for fault repair.
+            </p>
+
+            <p>
+                The first five laws were in Lehman’s initial proposals; the remaining laws were
+                added after further work. The sixth and seventh laws are similar and essentially say
+                that users of software will become increasingly unhappy with it unless it is maintained and new
+                functionality is added to it. The final law reflects the most recent
+                work on feedback processes, although it is not yet clear how this can be applied in
+                practical software development.
+            </p>
+
+            <p>
+                Lehman’s observations seem generally sensible. They should be taken into
+                account when planning the maintenance process. It may be that business considerations require them to be
+                ignored at any one time. For example, for marketing reasons, it may be necessary to make several major
+                system changes in a single release.
+                The likely consequences of this are that one or more releases devoted to error repair
+                are likely to be required. You often see this in personal computer software when a
+                major new release of an application is often quickly followed by a bug repair update.
+            </p>
+        </div>
+        <br>
+        <hr>
+
+        <div>
+            <h2>
+                9.3 Software maintenance
+            </h2>
+
+            <p>
+                Software maintenance is the general process of changing a system after it has been
+                delivered. The term is usually applied to custom software in which separate development groups are
+                involved before and after delivery. The changes made to the software
+                may be simple changes to correct coding errors, more extensive changes to correct
+                design errors, or significant enhancements to correct specification errors or accommodate new
+                requirements. Changes are implemented by modifying existing system
+                components and, where necessary, by adding new components to the system.
+            </p>
+
+            <section>
+                <p>
+                    There are three different types of software maintenance:
+                </p>
+
+                <ol>
+                    <li>
+                        Fault repairs Coding errors are usually relatively cheap to correct; design errors
+                        are more expensive as they may involve rewriting several program components.
+                        Requirements errors are the most expensive to repair because of the extensive
+                        system redesign which may be necessary.
+                    </li>
+
+                    <li>
+                        Environmental adaptation This type of maintenance is required when some
+                        aspect of the system’s environment such as the hardware, the platform operating
+                        system, or other support software changes. The application system must be
+                        modified to adapt it to cope with these environmental changes.
+                    </li>
+
+                    <li>
+                        Functionality addition This type of maintenance is necessary when the system
+                        requirements change in response to organizational or business change. The scale
+                        of the changes required to the software is often much greater than for the other
+                        types of maintenance.
+                    </li>
+                </ol>
+            </section>
+
+            <p>
+                In practice, there is not a clear-cut distinction between these types of maintenance. When you adapt the
+                system to a new environment, you may add functionality
+                to take advantage of new environmental features. Software faults are often exposed
+                because users use the system in unanticipated ways. Changing the system to accommodate their way of
+                working is the best way to fix these faults.
+            </p>
+
+            <p>
+                These types of maintenance are generally recognized but different people sometimes give them different
+                names. ‘Corrective maintenance’ is universally used to
+                refer to maintenance for fault repair. However, ‘adaptive maintenance’ sometimes
+                means adapting to a new environment and sometimes means adapting the software to
+                new requirements. ‘Perfective maintenance’ sometimes means perfecting the software by implementing new
+                requirements; in other cases it means maintaining the
+                functionality of the system but improving its structure and its performance. Because
+                of this naming uncertainty, I have avoided the use of all of these terms in this chapter.
+            </p>
+
+            <p>
+                There have been several studies of software maintenance which have looked at
+                the relationships between maintenance and development and between different
+                maintenance activities (Krogstie et al., 2005; Lientz and Swanson, 1980; Nosek and
+                Palvia, 1990; Sousa, 1998). Because of differences in terminology, the details of
+                these studies cannot be compared. In spite of changes in technology and different
+                application domains, it seems that there has been remarkably little change in the distribution of
+                evolution effort since the 1980s.
+            </p>
+
+            <p>
+                The surveys broadly agree that software maintenance takes up a higher proportion
+                of IT budgets than new development (roughly two-thirds maintenance, one-third
+                development). They also agree that more of the maintenance budget is spent on
+                implementing new requirements than on fixing bugs. Figure 9.8 shows an approximate distribution of
+                maintenance costs. The specific percentages will obviously vary
+                from one organization to another but, universally, repairing system faults is not the
+                most expensive maintenance activity. Evolving the system to cope with new environments and new or
+                changed requirements consumes most maintenance effort.
+            </p>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center;">
+                    <img src="9.8.png" alt="figure 9.8" width="35%">
+                </article>
+                <p style="text-align: center;"><b>Figure 9.8</b> | Maintenance effort distribution</p>
+                <br>
+            </section>
+
+            <p>
+                The relative costs of maintenance and new development vary from one application domain to another.
+                Guimaraes (1983) found that the maintenance costs for business application systems are broadly
+                comparable with system development costs.
+                For embedded real-time systems, maintenance costs were up to four times more than
+                development costs. The high reliability and performance requirements of these systems mean that modules
+                have to be tightly linked and hence difficult to change.
+                Although these estimates are more than 25 years old, it is unlikely that the cost distributions for
+                different types of system have significantly changed.
+            </p>
+
+            <p>
+                It is usually cost effective to invest effort in designing and implementing a system to
+                reduce the costs of future changes. Adding new functionality after delivery is expensive
+                because you have to spend time learning the system and analyzing the impact of the proposed changes.
+                Therefore, work done during development to make the software easier
+                to understand and change is likely to reduce evolution costs. Good software engineering
+                techniques, such as precise specification, the use of object-oriented development, and
+                configuration management, contribute to maintenance cost reduction.
+            </p>
+
+            <p>
+                Figure 9.9 shows how overall lifetime costs may decrease as more effort is
+                expended during system development to produce a maintainable system. Because of
+                the potential reduction in costs of understanding, analysis, and testing, there is a significant
+                multiplier effect when the system is developed for maintainability. For
+                System 1, extra development costs of $25,000 are invested in making the system
+                more maintainable. This results in a savings of $100,000 in maintenance costs over the lifetime of the
+                system. This assumes that a percentage increase in development
+                costs results in a comparable percentage decrease in overall system costs.
+            </p>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center;">
+                    <img src="9.9.png" alt="figure 9.9" width="400" height="160">
+                </article>
+                <p style="text-align: center;"><b>Figure 9.9</b> | Development and maintenance costs</p>
+                <br>
+            </section>
+
+            <section>
+                <b>
+                    Legacy systems
+                </b>
+
+                <p>
+                    Legacy systems are old systems that are still useful and are sometimes critical to business
+                    operation. They may
+                    be implemented using outdated languages and technology or may use other systems that are expensive
+                    to
+                    maintain. Often their structure has been degraded by change and documentation is missing or out of
+                    date.
+                    Nevertheless, it may not be cost effective to replace these systems. They may only be used at
+                    certain times
+                    of the year or it may be too risky to replace them because the specification has been lost.
+                </p>
+
+                <article style="display: flex; justify-content: center;">
+                    <a
+                        href="http://www.SoftwareEngineering-9.com/Web/LegacySys/"><b>http://www.SoftwareEngineering-9.com/Web/LegacySys/</b></a>
+                </article>
+            </section>
+
+            <p>
+                These estimates are hypothetical but there is no doubt that developing software to
+                make it more maintainable is cost effective, when the whole life costs of the software
+                are taken into account. This is the rationale for refactoring in agile development.
+                Without refactoring, the code becomes more and more difficult and expensive to
+                change. However, in plan-based development, the reality is that additional investment in code
+                improvement is rarely made during development. This is mostly due to
+                the ways most organizations run their budgets. Investing in maintainability leads to
+                short-term cost increases, which are measurable. Unfortunately, the long-term gains
+                can’t be measured at the same time so companies are reluctant to spend money for an
+                unknown future return.
+            </p>
+
+            <section>
+                <p>
+                    It is usually more expensive to add functionality after a system is in operation than
+                    it is to implement the same functionality during development. The reasons for this are:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>Team stability</em> – After a system has been delivered, it is normal for the development
+                        team to be broken up and for people to work on new projects. The new team or the individuals
+                        responsible for system maintenance do not understand the system or the background to system
+                        design decisions. They need to spend time understanding the existing system before implementing
+                        changes to it.
+                    </li>
+                    <li>
+                        <em>Poor development practice</em> – The contract to maintain a system is usually separate from
+                        the system development contract. The maintenance contract may be given to a different company
+                        rather than the original system developer. This factor, along with the lack of team stability,
+                        means that there is no incentive for a development team to write maintainable software. If a
+                        development team can cut corners to save effort during development it is worthwhile for them to
+                        do so, even if this makes the software more difficult to change in the future.
+                    </li>
+                    <li>
+                        <em>Staff skills</em> – Maintenance staff are often relatively inexperienced and unfamiliar with
+                        the application domain. Maintenance has a poor image among software engineers. It is seen as a
+                        less-skilled process than system development and is often allocated to the most junior staff.
+                        Furthermore, old systems may be written in obsolete programming languages. The maintenance staff
+                        may not have much experience of development in these languages and must learn them to maintain
+                        the system.
+                    </li>
+
+                    <li>
+                        <em>Program age and structure</em> – As changes are made to programs, their structure
+                        tends to degrade. Consequently, as programs age, they become harder to understand and change.
+                        Some systems have been developed without modern software
+                        engineering techniques. They may never have been well structured and were
+                        perhaps optimized for efficiency rather than understandability. System documentation may be lost
+                        or inconsistent. Old systems may not have been subject to
+                        stringent configuration management so time is often wasted finding the right
+                        versions of system components to change.
+
+                    </li>
+                </ol>
+            </section>
+
+            <section>
+                <b>
+                    Documentation
+                </b>
+
+                <p>
+                    System documentation can help the maintenance process by providing maintainers with information
+                    about the
+                    structure and organization of the system and the features that it offers to system users. Although
+                    proponents of
+                    agile approaches such as XP suggest that the code should be the principal documentation,
+                    higher-level design
+                    models and information about dependencies and constraints can make it easier to understand and make
+                    changes to the code.
+                </p>
+
+                <p>
+                    I have written a separate chapter on documentation that you can download.
+                </p>
+
+                <article style="display: flex; justify-content: center;">
+                    <a
+                        href="http://www.SoftwareEngineering-9.com/Web/ExtraChaps/Documentation.pdf"><b>http://www.SoftwareEngineering-9.com/Web/ExtraChaps/Documentation.pdf</b></a>
+                </article>
+            </section>
+
+            <p>
+                The first three of these problems stem from the fact that many organizations still
+                consider development and maintenance to be separate activities. Maintenance is seen
+                as a second-class activity and there is no incentive to spend money during development
+                to reduce the costs of system change. The only long-term solution to this problem is to
+                accept that systems rarely have a defined lifetime but continue in use, in some form,
+                for an indefinite period. As I suggested in the introduction, you should think of systems as evolving
+                throughout their lifetime through a continual development process.
+            </p>
+
+            <p>
+                The fourth issue, the problem of degraded system structure, is the easiest problem
+                to address. Software reengineering techniques (described later in this chapter) may
+                be applied to improve the system structure and understandability. Architectural
+                transformations can adapt the system to new hardware. Refactoring can improve the
+                quality of the system code and make it easier to change.
+            </p>
+        </div>
+
+        <br>
+        <hr>
+
+        <div>
+            <h2>
+                9.3.1 Maintenance prediction
+            </h2>
+
+            <p>
+                Managers hate surprises, especially if these result in unexpectedly high costs. You
+                should therefore try to predict what system changes might be proposed and what
+                parts of the system are likely to be the most difficult to maintain. You should also
+                try to estimate the overall maintenance costs for a system in a given time period.
+                Figure 9.10 shows these predictions and associated questions.
+            </p>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center;">
+                    <img src="9.10.png" alt="figure 9.10" width="600" height="300">
+                </article>
+                <p style="text-align: center;">
+                    <b>Figure 9.10</b> | Maintenance prediction
+                </p>
+                <br>
+            </section>
+
+            <section>
+                <p>
+                    Predicting the number of change requests for a system requires an understanding
+                    of the relationship between the system and its external environment. Some systems
+                    have a very complex relationship with their external environment and changes to that environment
+                    inevitably result in changes to the system. To evaluate the relationships
+                    between a system and its environment, you should assess:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>The number and complexity of system interfaces</em> – The larger the number of interfaces
+                        and the more complex these interfaces, the more likely it is that interface changes will be
+                        required as new requirements are proposed.
+                    </li>
+                    <li>
+                        <em>The number of inherently volatile system requirements</em> – Requirements that reflect
+                        organizational policies and procedures are likely to be more volatile than requirements that are
+                        based on stable domain characteristics.
+                    </li>
+                    <li>
+                        <em>The business processes in which the system is used</em> – As business processes evolve, they
+                        generate system change requests. The more business processes that use a system, the more the
+                        demands for system change.
+                    </li>
+                </ol>
+            </section>
+
+            <p>
+                For many years, researchers have looked at the relationships between program complexity, as measured by
+                metrics such as cyclomatic complexity (McCabe, 1976), and
+                maintainability (Banker et al., 1993; Coleman et al., 1994; Kafura and Reddy, 1987;
+                Kozlov et al., 2008). It is not surprising that these studies have found that the more
+                complex a system or component, the more expensive it is to maintain. Complexity
+                measurements are particularly useful in identifying program components that are
+                likely to be expensive to maintain. Kafura and Reddy (1987) examined a number of
+                system components and found that maintenance effort tended to be focused on a small
+                number of complex components. To reduce maintenance costs, therefore, you should
+                try to replace complex system components with simpler alternatives.
+            </p>
+
+            <section>
+                <p>
+                    After a system has been put into service, you may be able to use process data to
+                    help predict maintainability. Examples of process metrics that can be used for
+                    assessing maintainability are as follows:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>Number of requests for corrective maintenance</em> – An increase in the number of bug and
+                        failure reports may indicate that more errors are being introduced into the program than are
+                        being repaired during the maintenance process. This may indicate a decline in maintainability.
+                    </li>
+                    <li>
+                        <em>Average time required for impact analysis</em> – This reflects the number of program
+                        components that are affected by the change request. If this time increases, it implies more and
+                        more components are affected and maintainability is decreasing.
+                    </li>
+                    <li>
+                        <em>Average time taken to implement a change request</em> – This is not the same as the time for
+                        impact analysis although it may correlate with it. This is the amount of time that you need to
+                        modify the system and its documentation, after you have assessed which components are affected.
+                        An increase in the time needed to implement a change may indicate a decline in maintainability.
+                    </li>
+                    <li>
+                        <em>Number of outstanding change requests</em> – An increase in this number over time may imply
+                        a decline in maintainability.
+                    </li>
+                </ol>
+            </section>
+
+            <p>
+                You use predicted information about change requests and predictions about system maintainability to
+                predict maintenance costs. Most managers combine this information with intuition and experience to
+                estimate costs. The COCOMO 2 model of
+                cost estimation (Boehm et al., 2000), discussed in Chapter 24, suggests that an estimate for software
+                maintenance effort can be based on the effort to understand existing code and the effort to develop the
+                new code.
+            </p>
+        </div>
+
+        <br>
+        <hr>
+        <div>
+            <h2>
+                9.3.2 Software reengineering
+            </h2>
+
+            <p>
+                As I discussed in the previous section, the process of system evolution involves
+                understanding the program that has to be changed and then implementing these
+                changes. However, many systems, especially older legacy systems, are difficult to
+                understand and change. The programs may have been optimized for performance or
+                space utilization at the expense of understandability, or, over time, the initial program structure may
+                have been corrupted by a series of changes.
+            </p>
+
+            <section>
+                <p>
+                    To make legacy software systems easier to maintain, you can reengineer these
+                    systems to improve their structure and understandability. Reengineering may involve
+                    redocumenting the system, refactoring the system architecture, translating programs
+                    to a modern programming language, and modifying and updating the structure and
+                    values of the system’s data. The functionality of the software is not changed and,
+                    normally, you should try to avoid making major changes to the system architecture.
+                    There are two important benefits from reengineering rather than replacement:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>Reduced risk</em> – There is a high risk in redeveloping business-critical software. Errors
+                        may be made in the system specification or there may be development problems. Delays in
+                        introducing the new software may mean that business is lost and extra costs are incurred.
+                    </li>
+                    <li>
+                        <em>Reduced cost</em> – The cost of reengineering may be significantly less than the cost of
+                        developing new software. Ulrich (1990) quotes an example of a commercial system for which the
+                        reimplementation costs were estimated at $50 million. The system was successfully reengineered
+                        for $12 million. With modern software technology, the relative cost of reimplementation is
+                        probably less than this but will still considerably exceed the costs of reengineering.
+                    </li>
+                </ol>
+            </section>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center;">
+                    <img src="9.11.png" alt="figure 9.11" width="450" height="200">
+                </article>
+                <p style="text-align: center;">
+                    <b>Figure 9.11</b> | The reengineering process
+                </p>
+                <br>
+            </section>
+
+            <section>
+                <p>
+                    Figure 9.11 is a general model of the reengineering process. The input to the
+                    process is a legacy program and the output is an improved and restructured version
+                    of the same program. The activities in this reengineering process are as follows:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>Source code translation</em> – Using a translation tool, the program is converted from an
+                        old programming language to a more modern version of the same language or to a different
+                        language.
+                    </li>
+                    <li>
+                        <em>Reverse engineering</em> – The program is analyzed and information extracted from it. This
+                        helps to document its organization and functionality. Again, this process is usually completely
+                        automated.
+                    </li>
+                    <li>
+                        <em>Program structure improvement</em> – The control structure of the program is analyzed and
+                        modified to make it easier to read and understand. This can be partially automated but some
+                        manual intervention is usually required.
+                    </li>
+                    <li>
+                        <em>Program modularization</em> – Related parts of the program are grouped together and, where
+                        appropriate, redundancy is removed. In some cases, this stage may involve architectural
+                        refactoring (e.g., a system that uses several different data stores may be refactored to use a
+                        single repository). This is a manual process.
+                    </li>
+                    <li>
+                        <em>Data reengineering</em> – The data processed by the program is changed to reflect program
+                        changes. This may mean redefining database schemas and converting existing databases to the new
+                        structure. You should usually also clean up the data, which involves finding and correcting
+                        mistakes, removing duplicate records, etc. Tools are available to support data reengineering.
+                    </li>
+                </ol>
+            </section>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center;">
+                    <img src="9.12.png" alt="figure 9.12" width="430" height="150">
+                </article>
+                <p style="text-align: center;">
+                    <b>Figure 9.12</b> | Reengineering approaches
+                </p>
+                <br>
+            </section>
+
+            <p>
+                Program reengineering may not necessarily require all of the steps in Figure 9.11.
+                You don’t need source code translation if you still use the application’s programming
+                language. If you can do all reengineering automatically, then recovering documentation through reverse
+                engineering may be unnecessary. Data reengineering is only
+                required if the data structures in the program change during system reengineering.
+            </p>
+
+            <p>
+                To make the reengineered system interoperate with the new software, you may
+                have to develop adaptor services, as discussed in Chapter 19. These hide the original
+                interfaces of the software system and present new, better-structured interfaces that
+                can be used by other components. This process of legacy system wrapping is an
+                important technique for developing large-scale reusable services.
+            </p>
+
+            <p>
+                The costs of reengineering obviously depend on the extent of the work that is
+                carried out. There is a spectrum of possible approaches to reengineering, as shown
+                in Figure 9.12. Costs increase from left to right so that source code translation is
+                the cheapest option. Reengineering as part of architectural migration is the most
+                expensive.
+            </p>
+
+            <p>
+                The problem with software reengineering is that there are practical limits to how
+                much you can improve a system by reengineering. It isn’t possible, for example, to convert a system
+                written using a functional approach to an object-oriented system. Major
+                architectural changes or radical reorganizing of the system data management cannot be
+                carried out automatically, so they are very expensive. Although reengineering can
+                improve maintainability, the reengineered system will probably not be as maintainable
+                as a new system developed using modern software engineering methods.
+            </p>
+        </div>
+
+        <br>
+        <hr>
+
+        <div>
+            <h2>
+                9.3.3 Preventative maintenance by refactoring
+            </h2>
+
+            <p>
+                Refactoring is the process of making improvements to a program to slow down degradation through change
+                (Opdyke and Johnson, 1990). It means modifying a program to
+                improve its structure, to reduce its complexity, or to make it easier to understand.
+                Refactoring is sometimes considered to be limited to object-oriented development but
+                the principles can be applied to any development approach. When you refactor a program, you should not
+                add functionality but should concentrate on program improvement. You can therefore think of refactoring
+                as ‘preventative maintenance’ that reduces
+                the problems of future change.
+            </p>
+
+            <p>
+                Although reengineering and refactoring are both intended to make software easier
+                to understand and change, they are not the same thing. Reengineering takes place
+                after a system has been maintained for some time and maintenance costs are increasing. You use automated
+                tools to process and reengineer a legacy system to create a
+                new system that is more maintainable. Refactoring is a continuous process of
+                improvement throughout the development and evolution process. It is intended to
+                avoid the structure and code degradation that increases the costs and difficulties of
+                maintaining a system.
+            </p>
+
+            <p>
+                Refactoring is an inherent part of agile methods such as extreme programming
+                because these methods are based around change. Program quality is therefore liable to
+                degrade quickly so agile developers frequently refactor their programs to avoid this
+                degradation. The emphasis on regression testing in agile methods lowers the risk of
+                introducing new errors through refactoring. Any errors that are introduced should be
+                detectable as previously successful tests should then fail. However, refactoring is not
+                dependent on other ‘agile activities’ and can be used with any approach to development.
+            </p>
+
+            <section>
+                <p>
+                    Fowler et al. (1999) suggest that there are stereotypical situations (he calls them
+                    ‘bad smells’) in which the code of a program can be improved. Examples of bad
+                    smells that can be improved through refactoring include:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>Duplicate code</em> – The same or very similar code may be included at different places in a
+                        program. This can be removed and implemented as a single method or function that is called as
+                        required.
+                    </li>
+                    <li>
+                        <em>Long methods</em> – If a method is too long, it should be redesigned as a number of shorter
+                        methods.
+                    </li>
+                    <li>
+                        <em>Switch (case) statements</em> – These often involve duplication, where the switch depends on
+                        the type of some value. The switch statements may be scattered around a program. In
+                        object-oriented languages, you can often use polymorphism to achieve the same thing.
+                    </li>
+                    <li>
+                        <em>Data clumping</em> – Data clumps occur when the same group of data items (fields in classes,
+                        parameters in methods) reoccur in several places in a program. These can often be replaced with
+                        an object encapsulating all of the data.
+                    </li>
+                    <li>
+                        <em>Speculative generality</em> – This occurs when developers include generality in a program in
+                        case it is required in future. This can often simply be removed.
+                    </li>
+                </ol>
+            </section>
+
+            <p>
+                Fowler, in his book and website, also suggests some primitive refactoring transformations that can be
+                used singly or together to deal with the bad smells. Examples
+                of these transformations include Extract method, where you remove duplication and
+                create a new method; Consolidate conditional expression, where you replace a
+                sequence of tests with a single test; and Pull up method, where you replace similar
+                methods in subclasses with a single method in a super class. Interactive development
+                environments, such as Eclipse, include refactoring support in their editors. This
+                makes it easier to find dependent parts of a program that have to be changed to
+                implement the refactoring.
+            </p>
+
+            <p>
+                Refactoring, carried out during program development, is an effective way to
+                reduce the long-term maintenance costs of a program. However, if you take over a
+                program for maintenance whose structure has been significantly degraded, then it
+                may be practically impossible to refactor the code alone. You may also have to think
+                about design refactoring, which is likely to be a more expensive and difficult problem. Design
+                refactoring involves identifying relevant design patterns (discussed in
+                Chapter 7) and replacing existing code with code that implements these design patterns (Kerievsky,
+                2004). I don’t have space to discuss this here.
+            </p>
+        </div>
+
+        <br>
+        <hr>
+
+        <div>
+            <h2>
+                9.4 Legacy system management
+            </h2>
+
+            <p>
+                For new software systems developed using modern software engineering processes,
+                such as incremental development and CBSE, it is possible to plan how to integrate
+                system development and evolution. More and more companies are starting to understand that the system
+                development process is a whole life-cycle process and that an
+                artificial separation between software development and software maintenance is
+                unhelpful. However, there are still many legacy systems that are critical business systems. These have
+                to be extended and adapted to changing e-business practices.
+            </p>
+
+            <section>
+                <p>
+                    Most organizations usually have a portfolio of legacy systems that they use, with
+                    a limited budget for maintaining and upgrading these systems. They have to decide
+                    how to get the best return on their investment. This involves making a realistic
+                    assessment of their legacy systems and then deciding on the most appropriate strategy for evolving
+                    these systems. There are four strategic options:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>Scrap the system completely</em> – This option should be chosen when the system is not
+                        making an effective contribution to business processes. This commonly occurs when business
+                        processes have changed since the system was installed and are no longer reliant on the legacy
+                        system.
+                    </li>
+                    <li>
+                        <em>Leave the system unchanged and continue with regular maintenance</em> – This option should
+                        be chosen when the system is still required but is fairly stable and the system users make
+                        relatively few change requests.
+                    </li>
+                    <li>
+                        <em>Reengineer the system to improve its maintainability</em> – This option should be chosen
+                        when the system quality has been degraded by change and where a new change to the system is
+                        still being proposed. This process may include developing new interface components so that the
+                        original system can work with other, newer systems.
+                    </li>
+                    <li>
+                        <em>Replace all or part of the system with a new system</em> – This option should be chosen when
+                        factors, such as new hardware, mean that the old system cannot continue in operation or where
+                        off-the-shelf systems would allow the new system to be developed at a reasonable cost. In many
+                        cases, an evolutionary replacement strategy can be adopted in which major system components are
+                        replaced by off-the-shelf systems with other components reused wherever possible.
+                    </li>
+                </ol>
+            </section>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center;">
+                    <img src="9.13.png" alt="figure 9.13" width="450" height="280">
+                </article>
+                <p style="text-align: center;">
+                    <b>Figure 9.13</b> | An example of a legacy system assessment
+                </p>
+                <br>
+            </section>
+
+            <p>
+                Naturally, these options are not exclusive. When a system is composed of several
+                programs, different options may be applied to each program.
+            </p>
+
+            <p>
+                When you are assessing a legacy system, you have to look at it from a business
+                perspective and a technical perspective (Warren, 1998). From a business perspective,
+                you have to decide whether or not the business really needs the system. From a technical perspective,
+                you have to assess the quality of the application software and the
+                system’s support software and hardware. You then use a combination of the business
+                value and the system quality to inform your decision on what to do with the legacy
+                system.
+            </p>
+
+            <p>
+                For example, assume that an organization has 10 legacy systems. You should
+                assess the quality and the business value of each of these systems. You may then create a chart showing
+                relative business value and system quality. This is shown in
+                Figure 9.13.
+            </p>
+
+            <section>
+                <p>
+                    From Figure 9.13, you can see that there are four clusters of systems:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>Low quality, low business value</em> – Keeping these systems in operation will be expensive
+                        and the return to the business will be fairly small. These systems should be scrapped.
+                    </li>
+                    <li>
+                        <em>Low quality, high business value</em> – These systems are making an important business
+                        contribution so they cannot be scrapped. However, their low quality makes them expensive to
+                        maintain. They should be reengineered to improve their quality, or replaced if a suitable
+                        off-the-shelf system is available.
+                    </li>
+                    <li>
+                        <em>High quality, low business value</em> – These systems don’t contribute much to the business
+                        but are not very expensive to maintain. Normal maintenance may be continued if costly changes
+                        are not required and the system hardware remains in use. If expensive changes become necessary,
+                        the software should be scrapped.
+                    </li>
+                    <li>
+                        <em>High quality, high business value</em> – These systems must be kept in operation. Their high
+                        quality means you don’t need to invest in transformation or replacement, so normal system
+                        maintenance should be continued.
+                    </li>
+                </ol>
+            </section>
+
+            <section>
+                <p>
+                    To assess the business value of a system, you have to identify system stakeholders, such as
+                    end-users of the system and their managers, and ask a series of questions
+                    about the system. There are four basic issues that you have to discuss:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>The use of the system</em> – If systems are only used occasionally or by a small number of
+                        people, they may have a low business value. A legacy system may have been developed to meet a
+                        business need that has either changed or can now be met more effectively in other ways. However,
+                        occasional but essential use (e.g., a university student registration system) can still mean
+                        high business value.
+                    </li>
+                    <li>
+                        <em>The business processes that are supported</em> – When a system is introduced, processes are
+                        designed to exploit its capabilities. If the system is inflexible, adapting processes may be
+                        impossible. As the environment changes, these processes may become obsolete, reducing the
+                        system’s business value.
+                    </li>
+                    <li>
+                        <em>The system dependability</em> – Dependability is both a technical and business issue. If a
+                        system is unreliable and causes customer problems or diverts staff to fix issues, its business
+                        value is low.
+                    </li>
+                    <li>
+                        <em>The system outputs</em> – The importance of outputs determines value. If the business
+                        depends on them, the system has high business value. If outputs can be easily generated
+                        elsewhere or are rarely used, its business value is low.
+                    </li>
+                </ol>
+            </section>
+
+            <p>
+                For example, let’s assume that a company provides a travel ordering system that
+                is used by staff responsible for arranging travel. They can place orders with an
+                approved travel agent. Tickets are then delivered and the company is invoiced for
+                these. However, a business value assessment may reveal that this system is only used
+                for a fairly small percentage of travel orders placed. People making travel arrangements find it cheaper
+                and more convenient to deal directly with travel suppliers
+                through their websites. This system may still be used, but there is no real point in
+                keeping it. The same functionality is available from external systems.
+            </p>
+
+            <p>
+                Conversely, say a company has developed a system that keeps track of all previous customer orders and
+                automatically generates reminders for customers to reorder
+                goods. This results in a large number of repeat orders and keeps customers satisfied because they feel
+                that their supplier is aware of their needs. The outputs from such a
+                system are very important to the business and this system therefore has a high
+                business value.
+            </p>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center;">
+                    <img src="9.14.png" alt="figure 9.14" width="600" height="400">
+                </article>
+                <p style="text-align: center;">
+                    <b>Figure 9.14</b> | Factors used in environment assessment
+                </p>
+                <br>
+            </section>
+
+            <p>
+                To assess a software system from a technical perspective, you need to consider
+                both the application system itself and the environment in which the system operates.
+                The environment includes the hardware and all associated support software (compilers, development
+                environments, etc.) that are required to maintain the system. The
+                environment is important because many system changes result from changes to the
+                environment, such as upgrades to the hardware or operating system.
+            </p>
+
+            <p>
+                If possible, in the process of environmental assessment, you should make measurements of the system and
+                its maintenance processes. Examples of data that may be
+                useful include the costs of maintaining the system hardware and support software,
+                the number of hardware faults that occur over some time period and the frequency of
+                patches and fixes applied to the system support software.
+            </p>
+
+            <p>
+                Factors that you should consider during the environment assessment are shown in
+                Figure 9.14. Notice that these are not all technical characteristics of the environment.
+                You also have to consider the reliability of the suppliers of the hardware and support
+                software. If these suppliers are no longer in business, there may not be support for
+                their systems.
+            </p>
+
+            <section>
+                <br>
+                <article style="display: flex; justify-content: center;">
+                    <img src="9.15.png" alt="figure 9.15" width="600" height="400">
+                </article>
+                <p style="text-align: center;">
+                    <b>Figure 9.15</b> | Factors used in application assessment
+                </p>
+                <br>
+            </section>
+
+            <section>
+                <p>
+                    To assess the technical quality of an application system, you have to assess a
+                    range of factors (Figure 9.15) that are primarily related to the system dependability,
+                    the difficulties of maintaining the system and the system documentation. You may
+                    also collect data that will help you judge the quality of the system. Data that may be
+                    useful in quality assessment are:
+                </p>
+
+                <ol>
+                    <li>
+                        <em>The number of system change requests</em> – System changes usually corrupt the system
+                        structure and make further changes more difficult. The higher this accumulated value, the lower
+                        the quality of the system.
+                    </li>
+                    <li>
+                        <em>The number of user interfaces</em> – This is an important factor in forms-based systems
+                        where each form can be considered a separate user interface. The more interfaces there are, the
+                        more likely inconsistencies and redundancies will appear.
+                    </li>
+                    <li>
+                        <em>The volume of data used by the system</em> – The higher the volume of data (number of files,
+                        size of database, etc.), the greater the likelihood of data inconsistencies that reduce system
+                        quality.
+                    </li>
+                </ol>
+            </section>
+
+            <p>
+                Ideally, objective assessment should be used to inform decisions about what to do
+                with a legacy system. However, in many cases, decisions are not really objective but
+                are based on organizational or political considerations. For example, if two businesses
+                merge, the most politically powerful partner will usually keep its systems and scrap the other systems.
+                If senior management in an organization decide to move to a new
+                hardware platform, then this may require applications to be replaced. If there is no
+                budget available for system transformation in a particular year, then system maintenance may be
+                continued, even though this will result in higher long-term costs.
+            </p>
+        </div>
+    </main>
+
+</body>
+
+</html>
