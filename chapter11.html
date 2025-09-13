@@ -4,34 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header>
-        <h2>Software Engineering</h2>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="chapter2.html">Software Processes</a>
-            <a href="chapter8.html">Software Testing</a>
-            <a href="chapter9.html">Software Evolution</a>
-            <a href="chapter11.html">Dependability and Security</a>
-        </nav>
-        <br>
+        <div
+            style="display: flex; justify-content: space-between; align-items: center; padding-left: 2%; padding-right: 2%;">
+            <section style="display: flex; align-items: center; flex-direction: row;">
+                <img src="Derp-Pikachu.png" alt="icon" width="50" height="50" style="margin-right:10px;">
+                <h2 style="margin:0;">Software Engineering</h2>
+            </section>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="chapter2.html">Software Processes</a>
+                <a href="chapter8.html">Software Testing</a>
+                <a href="chapter9.html">Software Evolution</a>
+                <a href="chapter11.html">Dependability and Security</a>
+            </nav>
+        </div>
         <hr>
     </header>
+
+   
     
     <main>
-        <section>
-            <article>
-                <img src="" alt="img">
-            </article>
-
+        <section class="section">
             <article>
                 <h1>11<hr></h1>
-                <h1>Dependability and security</h1>
+                <h1 class="firsth1">Dependability and security</h1>
             </article>
 
-            <article>
+            <article class="firstarticle">
                 <h3>Objectives</h3>
                 <p>The objective of this chapter is to introduce software dependability and <br>security. When you have read this chapter, you will:</p>
                 <ul>
@@ -49,7 +54,7 @@
             </article>
         </section>
 
-        <section>
+        <section class="section">
             
             <p>As computer systems have become deeply embedded in our business and personal lives, the problems that result from system and software failure are increasing. A failure of server software in an e-commerce company could lead to a major loss of revenue, and possibly also customers for that company. A software error in an embedded control system in a car could lead to expensive recalls of that model for repair and, in the worst case, could be a contributory factor in accidents. The infection of company PCs with malware requires expensive cleanup operations to sort out the problem and could result in the loss or damage to sensitive information.</p>
             <p>Because software-intensive systems are so important to governments, companies, and individuals, it is essential that widely used software is trustworthy. The software should be available when required and should operate correctly and without undesirable side effects, such as unauthorized information disclosure. The term ‘dependability’ was proposed by Laprie (1995) to cover the related systems attributes of availability, reliability, safety, and security. As I discuss in Section 11.1, these properties are inextricably linked, so having a single term to cover them all makes sense.
@@ -63,7 +68,7 @@
             </ol>
         </section>
 
-        <section>
+        <section class="section">
             <p>As I discussed in Chapter 10, software is always part of a broader system. It executes in an operational environment that includes the hardware on which the software executes, the human users of that software, and the organizational or business processes where the software is used. When designing a dependable system, you therefore have to consider:</p>
 
             <ol>
@@ -75,13 +80,13 @@
             <p>These failures are often interrelated. A failed hardware component may mean system operators have to cope with an unexpected situation and additional workload. This puts them under stress and people under stress often make mistakes. This can cause the software to fail, which means more work for the operators, even more stress, and so on. <br> As a result, it is particularly important that designers of dependable, softwareintensive systems take a holistic systems perspective, rather than focus on a single aspect of the system such as its software or hardware. If hardware, software, and operational processes are designed separately, without taking into account the potential weaknesses of other parts of the system, then it is more likely that errors will occur at the interfaces between the different parts of the system. </p>
         </section>
 
-        <section>
+        <section class="section">
             <h3>11.1 Dependability properties</h3>
 
             <p>All of us are familiar with the problem of computer system failure. For no obvious reason, our computers sometimes crash or go wrong in some way. Programs running on these computers may not operate as expected and occasionally may corrupt the data that is managed by the system. We have learned to live with these failures but few of us completely trust the personal computers that we normally use.</p>
             <p>The dependability of a computer system is a property of the system that reflects its trustworthiness. Trustworthiness here essentially means the degree of confidence a user has that the system will operate as they expect, and that the system will not‘fail’ in normal use. It is not meaningful to express dependability numerically.</p>
-            <article>
-                <img src="" alt="basta pic ito">
+            <article class="first-pic">
+                <img src="img/Screenshot 2025-09-06 141022.png" alt="basta pic ito">
             </article>
             <article>
                 <p><b>Figure 11.1</b><br>
@@ -98,7 +103,7 @@
             </ol>
         </section>
 
-        <section>
+        <section class="section">
             <p>The dependability properties shown in Figure 11.1 are complex properties that can be broken down into a number of other, simpler properties. For example, security includes ‘integrity’ (ensuring that the systems program and data are not damaged) and ‘confidentiality’ (ensuring that information can only be accessed by people who are authorized). Reliability includes ‘correctness’ (ensuring the system services are as specified), ‘precision’ (ensuring information is delivered at an appropriate level of detail), and ‘timeliness’ (ensuring that information is delivered when it is required). </p>
             <p>Of course, these dependability properties are not all applicable to all systems. For the insulin pump system, introduced in Chapter 1, the most important properties are availability (it must work when required), reliability (it must deliver the correct dose of insulin), and safety (it must never deliver a dangerous dose of insulin). Security is not an issue as the pump will not maintain confidential information. It is not networked and so cannot be maliciously attacked. For the wilderness weather system, availability and reliability are the most important properties because the costs of repair may be very high. For the patient information system, security is particularly important because of the sensitive private data that is maintained. <br>As well as these four main dependability properties, you may also think of other system properties as dependability properties:</p>
 
@@ -110,7 +115,7 @@
             </ol> 
         </section>
 
-        <section>
+        <section class="section">
             <p>The notion of system dependability as an encompassing property was introduced because the dependability properties of availability, security, reliability, and safety are closely related. Safe system operation usually depends on the system being available and operating reliably. A system may become unreliable because an intruder has corrupted its data. Denial of service attacks on a system are intended to compromise the system’s availability. If a system is infected with a virus, you cannot then be confident in its reliability or safety because the virus may change its behavior.<br>To develop dependable software, you therefore need to ensure that:</p>
             <ol>
                 <li>You avoid the introduction of accidental errors into the system during software specification and development.</li>
@@ -123,12 +128,12 @@
             <p>Because of extra design, implementation, and validation costs, increasing the dependability of a system significantly increases development costs. In particular, validation costs are high for systems that must be ultra-dependable such as safetycritical control systems. As well as validating that the system meets its requirements, the validation process may have to prove to an external regulator that the system is safe. For example, aircraft systems have to demonstrate to regulators, such as the Federal Aviation Authority, that the probability of a catastrophic system failure that affects aircraft safety is extremely low.</p>
             <p>Figure 11.2 shows that the relationship between costs and incremental improvements in dependability. If your software is not very dependable, you can get significant improvements at relatively low costs by using better software engineering. However, if you are already using good practice, the costs of improvement are much greater and the benefits from that improvement are less. There is also the problem of testing your software to demonstrate that it is dependable. This relies on running many tests and looking at the number of failures that occur. As your software becomes more dependable, you see fewer and fewer failures. Consequently, more and more tests are needed to try and assess how many problems remain in the software. As testing is very expensive, this dramatically increases the cost of high-dependability systems.</p>
             
-            <article>
-                <img src="" alt="img ito">
+            <article class="first-pic">
+                <img src="img/Screenshot 2025-09-06 154520.png" alt="img ito">
             </article>
         </section>
 
-        <section>
+        <section class="section">
             <h3>11.2 Availability and reliability </h3>
 
             <p>System availability and reliability are closely related properties that can both be expressed as numerical probabilities. The availability of a system is the probability that the system will be up and running to deliver these services to users on request. The reliability of a system is the probability that the system’s services will be delivered as defined in the system specification. If, on average, 2 inputs in every 1,000 cause failures, then the reliability, expressed as a rate of occurrence of failure, is 0.002. If the availability is 0.999, this means that, over some time period, the system is available for 99.9% of that time.</p>
@@ -148,10 +153,10 @@
             <p>The disruption caused by unavailable systems is not reflected in the simple availability metric that specifies the percentage of time that the system is available. The time when the system fails is also significant. If a system is unavailable for an hour each day between 3 am and 4 am, this may not affect many users. However, if the same system is unavailable for 10 minutes during the working day, system unavailability will probably have a much greater effect.</p>
         </section>
 
-        <section>
+        <section class="section">
            
-            <article>
-                <img src="" alt="img ito">
+            <article class="first-pic">
+                <img src="img/Screenshot 2025-09-06 160035.png" alt="img ito">
             </article>
 
             <article>
@@ -165,9 +170,9 @@
             <p>Because each user of a system uses it in different ways, they have different perceptions of its reliability. Faults that affect the reliability of the system for one user may never be revealed under someone else’s mode of working (Figure 11.5). In Figure 11.5, the set of erroneous inputs correspond to the ellipse labeled Ie in Figure 11.4. The set of inputs produced by User 2 intersects with this erroneous input set. User 2 will</p>
         </section>
 
-        <section>
-            <article>
-                <img src="" alt="img ito">
+        <section class="section">
+            <article class="first-pic">
+                <img src="img/Screenshot 2025-09-06 160921.png" alt="img ito">
             </article>
 
             <p>therefore experience some system failures. User 1 and User 3, however, never useinputs from the erroneous set. For them, the software will always be reliable.</p>
@@ -177,8 +182,8 @@
             <ol>
                 <li>Not all code in a program is executed. The code that includes a fault (e.g., the failure to initialize a variable) may never be executed because of the way that the software is used.</li>
 
-                <div>
-                     <img src="" alt="pic ulit">
+                <div class="second-pic">
+                     <img src="img/Screenshot 2025-09-06 161436.png" alt="pic ulit">
                 </div>
 
                 <li>Errors are transient. A state variable may have an incorrect value caused by the execution of faulty code. However, before this is accessed and causes a system failure, some other system input may be processed that resets the state to a valid value.</li>
@@ -195,7 +200,7 @@
             <p>The practical application of these techniques is discussed in Chapter 13, which covers techniques for dependable software engineering.</p>
         </section>
 
-        <section>
+        <section class="section">
             <h3>11.3 Safety</h3>
 
             <p>Safety-critical systems are systems where it is essential that system operation is always safe; that is, the system should never damage people or the system’s environment even if the system fails. Examples of safety-critical systems include control and monitoring systems in aircraft, process control systems in chemical and pharmaceutical plants, and automobile control systems.</p>
@@ -215,13 +220,13 @@
             </ol>
         </section>
 
-        <section>
+        <section class="section">
             <article>
                 <p><b>Figure 11.6</b><br>
                 Safety terminology</p>
             </article>
-            <article>
-                <img src="" alt="img ulit">
+            <article class="first-pic">
+                <img src="img/Screenshot 2025-09-06 162902.png" alt="img ulit">
             </article>
 
             <p>4. The system operators may generate inputs that are not individually incorrect but which, in some situations, can lead to a system malfunction. An anecdotal example of this occurred when an aircraft undercarriage collapsed whilst the aircraft was on the ground. Apparently, a technician pressed a button that instructed the utility management software to raise the undercarriage. The software carried out the mechanic’s instruction perfectly. However, the system should have disallowed the command unless the plane was in the air</p>
@@ -234,7 +239,7 @@
             </ol>
         </section>
 
-        <section>
+        <section class="section">
             <p>Accidents most often occur when several things go wrong at the same time. An analysis of serious accidents (Perrow, 1984) suggests that they were almost all due to a combination of failures in different parts of a system. Unanticipated combinations of subsystem failures led to interactions that resulted in overall system failure. For example, failure of an air-conditioning system could lead to overheating, which then causes the system hardware to generate incorrect signals. Perrow also suggests that it is impossible to anticipate all possible combinations of failures. Accidents are therefore an inevitable part of using complex systems</p>
             <P>Some people have used this as an argument against software control. Because of the complexity of software, there are more interactions between the different parts of a system. This means that there will probably be more combinations of faults that could lead to system failure.</P>
             <P>However, software-controlled systems can monitor a wider range of conditions than electro-mechanical systems. They can be adapted relatively easily. They use computer hardware, which has very high inherent reliability and which is physically small and lightweight. Software-controlled systems can provide sophisticated safety interlocks. They can support control strategies that reduce the amount of time people need to spend in hazardous environments. Although software control may introduce more ways in which a system can go wrong, it also allows better monitoring and protection and hence can contribute to improvements in system safety.</P>
@@ -245,8 +250,8 @@
             <h3>11.4 Security</h3>
 
            <p>Security is a system attribute that reflects the ability of the system to protect itself from external attacks, which may be accidental or deliberate. These external attacks are possible because most general-purpose computers are now networked and are</p> 
-            <article>
-                <img src="" alt="pic ito">
+            <article class="first-pic">
+                <img src="img/Screenshot 2025-09-06 164126.png" alt="pic ito">
             </article>
            <article>
                 <p><b>Figure 11.7</b><br>
@@ -258,9 +263,9 @@
             <P>As with other aspects of dependability, there is a specialized terminology associated with security. Some important terms, as discussed by Pfleeger (Pfleeger and Pfleeger, 2007), are defined in Figure 11.7. Figure 11.8 takes the security concepts described in Figure 11.7 and shows how they relate to the following scenario taken from the MHC-PMS:</P>
         
         </section>
-        <section>
-            <article>
-                <img src="" alt="pic">
+        <section class="section">
+            <article class="first-pic">
+                <img src="img/Screenshot 2025-09-06 164447.png" alt="pic">
             </article>
             
             <article>
@@ -281,7 +286,7 @@
             <p>These threats are, of course, interdependent. If an attack makes the system unavailable, then you will not be able to update information that changes with time. This means that the integrity of the system may be compromised. If an attack succeeds and the integrity of the system is compromised, then it may have to be taken down to repair the problem. Therefore, the availability of the system is reduced.</p>
         </section>
 
-        <section>
+        <section class="section">
             <p>In practice, most vulnerabilities in sociotechnical systems result from human failings rather than technical problems. People choose easy-to-guess passwords or write down their passwords in places where they can be found. System administrators make errors in setting up access control or configuration files and users don’t install or use protection software. However, as I discussed in Section 10.5, we have to be very careful when classifying a problem as a user error. Human problems often reflect poor systems design decisions that require, for example, frequent password changes (so that users write down their passwords) or complex configuration mechanisms.</p>
             <p>The controls that you might put in place to enhance system security are comparable to those for reliability and safety:</p>
         
@@ -295,5 +300,10 @@
             <p>Errors in the development of a system can lead to security loopholes. If a system does not respond to unexpected inputs or if array bounds are not checked, then attackers can exploit these weaknesses to gain access to the system. Major security incidents such as the original Internet worm (Spafford, 1989) and the Code Red worm more than 10 years later (Berghel, 2001) took advantage of the same vulnerability. Programs in C# do not include array bound checking, so it is possible to overwrite part of memory with code that allows unauthorized access to the system.</p>
         </section>
     </main>
+
+    <footer style="background-color:#333; color:white; padding:20px; text-align:center;">
+        <p style="margin:0;">&copy; 2025 Group Eight. All rights reserved.</p>
+        <p>ARIZALA, RON ANDREW</p>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&display=swap');    
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Epunda Slab;
+}
+
+main{
+    background-color: #ffffff ;
+
+}
+
+.section{
+    background-color:#dfe4ea;
+    padding: 20px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 5px;
+    box-shadow: 8px 12px #ced6e0 ;
+}
+ .section:hover{
+    background-color: #a4b0be;
+    transition: 0.2s;
+ }
+.firsth1{
+    text-align: center;
+}
+
+.first-pic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.second-pic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+
