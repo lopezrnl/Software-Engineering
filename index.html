@@ -7,14 +7,69 @@
     <title>Home Page</title>
     <link rel="icon" type="image/png" href="chapter9-images/Derp-Pikachu.png">
 
+
 </head>
+<style>
+    :root {
+        --primary: #A06EC4;
+        --secondary-color: #CBA9EF;
+        --accent-color: #EBE0F5;
+        --fenk: #E378A8;
+        --complementary: #F8B5D2;
+    }
+
+    header {
+        background-color: var(--fenk);
+        margin: 0px;
+        border-radius: 10px;
+    }
+
+    main {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--accent-color);
+        background-color: var(--complementary);
+        border-radius: 10px;
+        margin-left: 15%;
+        margin-right: 15%;
+        padding: 2%;
+        padding-top: 3px;
+        text-align: justify;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--accent-color);
+    }
+
+    a:hover {
+        color: var(--primary);
+    }
+
+    h1 {
+        color: var(--primary);
+    }
+
+    h2 {
+        color: var(--primary);
+    }
+
+    h3{
+        color: var(--primary);
+    }
+
+    body {
+        background-color: var(--accent-color);
+    }
+</style>
 
 <body>
     <header>
+        <br>
         <div
             style="display: flex; justify-content: space-between; align-items: center; padding-left: 2%; padding-right: 2%;">
             <section style="display: flex; align-items: center; flex-direction: row;">
-                <img src="chapter9-images/Derp-Pikachu.png" alt="icon" width="50" height="50" style="margin-right:10px;">
+                <img src="chapter9-images/Derp-Pikachu.png" alt="icon" width="50" height="50"
+                    style="margin-right:10px;">
                 <h2 style="margin:0;">Software Engineering</h2>
             </section>
             <nav>
@@ -25,11 +80,12 @@
                 <a href="chapter11.html">Dependability and Security</a>
             </nav>
         </div>
-        <hr>
+        <br>
     </header>
+    <br>
 
-    <main style="text-align: justify; margin-left: 15%; margin-right: 15%;">
-        <div style="text-align: center;">
+    <main>
+        <div class="ewan" style="text-align: center;">
             <h1>Welcome to the Software Engineering Home Page</h1>
             <hr>
             <div style="display: flex; justify-content: center; align-items: center;">
@@ -42,7 +98,7 @@
 
             <h3>MADE BY GROUP 8</h3>
 
-            
+
             <br>
 
             <h1>
@@ -62,9 +118,11 @@
             <h1>MANINGAT, NICOLL MITCH</h1>
         </div>
     </main>
-
+    <br>
+    <hr>
+    <br>
     <footer style="background-color:#333; color:white; padding:20px; text-align:center;">
-        <p style="margin:0;">&copy; 2025 Group Eight. All rights reserved.</p>
+        <p style="margin:0;">&copy; 2025 Group Eight. All rights reserved. -Maningat, Nicoll Mitch E.</p>
     </footer>
 
 </body>

@@ -6,28 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software Evolution | hungry shark evolution</title>
     <link rel="icon" type="image/png" href="Derp-Pikachu.png">
+    <link rel="stylesheet" href="chapter9.css">
 </head>
-
-<style>
-    main{
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: red;
-        background-color: yellow;
-        border-style: solid;
-        border-color: red;
-        border-width: 25px;
-        padding-left: 15%;
-        padding-right: 15%;
-    }
-</style>
 
 <body>
     <header>
+        <br>
         <div
             style="display: flex; justify-content: space-between; align-items: center; padding-left: 2%; padding-right: 2%;">
             <section style="display: flex; align-items: center; flex-direction: row;">
-                <img src="chapter9-images/Derp-Pikachu.png" alt="icon" width="50" height="50" style="margin-right:10px;">
-                <h2 style="margin:0;">Software Engineering</h2>
+                <img src="chapter9-images/Derp-Pikachu.png" alt="icon" width="50" height="50"
+                    style="margin-right:10px;">
+                <h2 style="margin:0; color: black;">Software Engineering</h2>
             </section>
             <nav>
                 <a href="index.html">Home</a>
@@ -37,17 +27,18 @@
                 <a href="chapter11.html">Dependability and Security</a>
             </nav>
         </div>
-        <hr>
+        <br>
     </header>
+    <br>
 
-    <main style="text-align: justify;">
+    <main>
         <h1>Software Evolution</h1>
         <hr>
         <div style="display: flex; justify-content: center; align-items: center;">
             <img src="chapter9-images/ron.jpg" alt="Software Engineering" width="1000" height="200">
         </div>
-
-        <div>
+        <br>
+        <div class="ewan">
             <h2>Objectives</h2>
             <ul>
                 <li>Understand that change is inevitable if software systems are to remain useful and that software
@@ -59,22 +50,26 @@
                     replaced.</li>
             </ul>
         </div>
-
-        <div>
+        <br>
+        <div class="ewan">
             <h2>Contents</h2>
             <section>
                 <ul style="list-style-type: none; padding: 1; margin: 0;">
-                    <li><b>9.1</b> Evolution processes</li>
-                    <li><b>9.2</b> Program evolution dynamics</li>
-                    <li><b>9.3</b> Software maintenance</li>
-                    <li><b>9.4</b> Legacy system management</li>
+                    <li><a href="#9.1"><b>9.1</b> Evolution processes</a></li>
+                    <li><a href="#9.2"><b>9.2</b> Program evolution dynamics</a></li>
+                    <li><a href="#9.3"><b>9.3</b> Software maintenance</li></a>
+                    <li><a href="#9.3.1"><b>9.3.1</b> Maintenance prediction</li></a>
+                    <li><a href="#9.3.2"><b>9.3.2</b> Software reengineering</li></a>
+                    <li><a href="#9.3.3"><b>9.3.3</b> Preventative maintenance by refactoring</li></a>
+                    <li><a href="#9.4"><b>9.4</b> Legacy system management</li></a>
                 </ul>
             </section>
         </div>
         <br>
         <hr>
+        <br>
 
-        <div>
+        <div class="ewan">
             <h2>Introduction</h2>
 
             <p>Software development does not stop when a system is delivered but continues
@@ -129,7 +124,7 @@
 
             <section>
                 <br>
-                <article style="display: flex; justify-content: center; align-items: center;">
+                <article class="pic">
                     <img src="chapter9-images/figure9.1.png" alt="Spiral Model " width="500" height="300">
                 </article>
                 <p style="text-align: center;"><b>Figure 9.1 </b> | A spiral model of development and
@@ -187,8 +182,9 @@
 
         <br>
         <hr>
-        <div>
-            <h2>9.1 Evolution Processes</h2>
+        <br>
+        <div class="ewan">
+            <h2 id="9.1">9.1 Evolution Processes</h2>
 
             <p>Software evolution processes vary depending on the type of software being maintained, the development
                 processes used in an organization and the skills of the people involved. In some organizations,
@@ -201,7 +197,8 @@
             <section>
                 <br>
                 <article style="display: flex; justify-content: center; align-items: center;">
-                    <img src="chapter9-images/figure9.3.png" alt="A generic software evolution process" width="400" height="260">
+                    <img src="chapter9-images/figure9.3.png" alt="A generic software evolution process" width="400"
+                        height="260">
                 </article>
                 <p style="text-align: center;"><b>Figure 9.3</b> | Change identification and evolution
                     processes</p>
@@ -226,7 +223,8 @@
             <section>
                 <br>
                 <article style="display: flex; justify-content: center; align-items: center;">
-                    <img src="chapter9-images/figure9.4.png" alt="A generic software evolution process" width="600" height="200">
+                    <img src="chapter9-images/figure9.4.png" alt="A generic software evolution process" width="600"
+                        height="200">
                 </article>
                 <p style="text-align: center;"><b>Figure 9.4</b> | The software evolution process</p>
                 <br>
@@ -379,9 +377,10 @@
         </div>
         <br>
         <hr>
+        <br>
 
-        <div>
-            <h2>9.2 Program Evolution Dynamics</h2>
+        <div class="ewan">
+            <h2 id="9.2">9.2 Program Evolution Dynamics</h2>
 
             <p>
                 Program evolution dynamics is the study of system change. In the 1970s and 1980s,
@@ -495,11 +494,13 @@
                 major new release of an application is often quickly followed by a bug repair update.
             </p>
         </div>
+
         <br>
         <hr>
+        <br>
 
-        <div>
-            <h2>
+        <div class="ewan">
+            <h2 id="9.3">
                 9.3 Software maintenance
             </h2>
 
@@ -760,9 +761,10 @@
 
         <br>
         <hr>
+        <br>
 
-        <div>
-            <h2>
+        <div class="ewan">
+            <h2 id="9.3.1">
                 9.3.1 Maintenance prediction
             </h2>
 
@@ -869,8 +871,9 @@
 
         <br>
         <hr>
-        <div>
-            <h2>
+        <br>
+        <div class="ewan">
+            <h2 id="9.3.2">
                 9.3.2 Software reengineering
             </h2>
 
@@ -1007,9 +1010,10 @@
 
         <br>
         <hr>
+        <br>
 
-        <div>
-            <h2>
+        <div class="ewan">
+            <h2 id="9.3.3">
                 9.3.3 Preventative maintenance by refactoring
             </h2>
 
@@ -1105,9 +1109,10 @@
 
         <br>
         <hr>
+        <br>
 
-        <div>
-            <h2>
+        <div class="ewan">
+            <h2 id="9.4">
                 9.4 Legacy system management
             </h2>
 
@@ -1362,6 +1367,12 @@
             </p>
         </div>
     </main>
+
+    <br>
+    <hr><br>
+    <footer style="background-color:#333; color:white; padding:20px; text-align:center;">
+        <p style="margin:0;">&copy; 2025 Group Eight. All rights reserved. -Maningat, Nicoll Mitch E.</p>
+    </footer>
 
 </body>
 
