@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&display=swap');    
+
+:root {
+    --section-color :#c1abd5;
+    --section-shadow : #84639f;
+    --section-hover : #d3c2e2;
+    scroll-behavior: smooth;
+
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Epunda Slab;
+}
+
+main{
+    background-color: #a88ac2 ;
+}
+
+ 
+.content{
+    border: 2px solid black;
+    background-color: #b798d1;
+    border-radius: 10px;
+    padding-left: 15px;
+}
+
+.content a{
+    text-decoration: none;
+}
+
+.content a:hover {
+    background-color: #a88ac2;
+}
+
+.section{
+    background-color: var(--section-color);
+    padding: 20px;
+    margin-bottom: 45px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 5px;
+    border: solid 2px #553f64;
+    box-shadow: 8px 12px var(--section-shadow) ;
+    transition: 0.5s;
+}
+ .section:hover{
+    background-color: var(--section-hover);
+    transition: 0.5s;
+    scale: 1.05;
+    
+ }
+ .last-section {
+    background-color: var(--section-color);
+    padding: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 5px;
+    border: solid 1px #553f64;
+    box-shadow: 8px 12px var(--section-shadow) ;
+    transition: 0.5s;
+ }
+
+ .last-section:hover{
+    background-color: var(--section-hover);
+    transition: 0.5s;
+    scale: 1.05;
+ }
+
+.firsth1{
+    text-align: center;
+}
+
+.first-pic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.second-pic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+nav a:link, a:visited {
+    background-color: #d3c2e2;
+    color: black;
+    border: #d3c2e2;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+nav a:hover, a:active {
+    background-color:#c4aed6;
+    color: black;
+    scale: 1.03;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+
+hr{
+    color: black;
+    background-color: black;
+    box-shadow: black;
+    border-color: black;
+ }
+
+ ol{
+    border: 2px solid black;
+    background-color: #b798d1;
+    border-radius: 10px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+ }
+
