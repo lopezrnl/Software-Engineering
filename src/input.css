@@ -1,1 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
+
+@theme {
+  /* Primary Palette */
+  --color-primary-300: #c4b5fd;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+
+  /* Accent Palette */
+  --color-accent-light: #d3c2e2;
+  --color-accent-darker: #84639f;
+}
+
+@theme {
+  --font-heading: "Poppins", medium;
+  --font-display: "Monsterrat", sans-serif;
+  --font-body: "Lato", light;
+}
+
+/* === Base === */
+.page-body {
+  @apply bg-primary-300 antialiased leading-relaxed;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+.scroll-up {
+  @apply fixed bottom-6 right-6 text-3xl bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300;
+}
+
+/* === Header === */
+.header {
+  @apply bg-accent-light/95 shadow-lg sticky top-0 z-50 backdrop-blur-sm;
+}
+.header2 {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-5;
+}
+.header3 {
+  @apply flex flex-col lg:flex-row justify-between items-center gap-4;
+}
+
+.logo1 {
+  @apply flex items-center gap-3;
+}
+.logo2 {
+  @apply w-12 h-12 sm:w-14 sm:h-14 bg-primary-700 rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300;
+}
+.logo3 {
+  @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-heading font-bold text-gray-800;
+}
+.nav1 {
+  @apply flex flex-wrap justify-center gap-2 grid-cols-5 font-bold;
+}
+.navtext {
+  @apply px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base font-body font-medium text-gray-800 bg-white/50 rounded-lg hover:bg-primary-700 hover:text-white hover:scale-105 transition-all duration-300 shadow-sm;
+}
+
+/* === Navigation Links with Hover Underline === */
+/* .nav-link {
+  @apply relative text-[#EBE0F5] transition-colors duration-300;
+}
+.nav-link::after {
+  content: "";
+  @apply absolute left-0 bottom-0 w-0 h-[2px] bg-[#A06EC4] transition-all duration-300;
+}
+.nav-link:hover {
+  @apply text-[#A06EC4];
+}
+.nav-link:hover::after {
+  @apply w-full;
+} */
+
+/* === Main Layout === */
+.main {
+  @apply max-w-7xl mx-auto px-4 md:px-6 py-8;
+}
+.main-card {
+  @apply bg-white/90 rounded-xl p-6 md:p-8 shadow-sm;
+}
+.main-card1 {
+  @apply bg-linear-to-br from-accent-darker via-accent-light  to-primary-600 rounded-xl p-6 md:p-8 shadow-sm;
+}
+.title {
+  @apply text-white font-display text-3xl md:text-4xl font-bold text-center;
+}
+.divider {
+  @apply border-accent-darker my-6;
+}
+
+/* === Content Sections === */
+.content-box {
+  @apply bg-primary-600 rounded-lg p-6 md:p-8 mt-6;
+}
+.section-title {
+  @apply text-primary-700 font-display text-2xl font-semibold mb-3;
+}
+.section-title2 {
+  @apply text-white font-display text-2xl font-semibold mb-3;
+}
+.paragraphs p {
+  @apply text-justify mb-4 text-sm md:text-base text-white;
+}
+.boldy {
+  @apply font-display font-semibold text-white;
+}
+
+/* === Lists and Links === */
+.list {
+  @apply list-disc list-inside text-white text-justify space-y-2 text-sm md:text-base;
+}
+.content-list {
+  @apply list-none space-y-2 text-white;
+}
+
+/* === Contents Links with Hover Underline === */
+.content-link {
+  @apply relative hover:text-accent-light transition-colors duration-300 cursor-pointer;
+}
+.content-link::after {
+  content: "";
+  @apply absolute left-0 bottom-[-2px] w-0 h-[1.5px] bg-accent-light transition-all duration-300;
+}
+.content-link:hover::after {
+  @apply w-full;
+}
+
+/* === Images === */
+.image-center {
+  @apply flex-col flex justify-center items-center my-4;
+}
+.banner-img {
+  @apply w-full max-w-[1000px] h-auto object-cover rounded-md shadow;
+}
+.content-img {
+  @apply w-full max-w-[700px] h-auto object-contain rounded-md shadow-sm;
+}
+.figure-caption {
+  @apply block text-center text-sm text-white mb-4;
+}
+
+/* === Footer === */
+.footer {
+  @apply bg-accent-light shadow-2xl mt-12;
+}
+.footer1 {
+  @apply h-1 bg-linear-to-r from-primary-600 via-accent-darker to-accent-darker;
+}
+.footer2 {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8 py-6;
+}
+.footerp {
+  @apply text-gray-800 font-semibold text-lg mb-2;
+}
+.footers1 {
+  @apply flex justify-center gap-3 flex-wrap;
+}
+.footers2 {
+  @apply mt-4 pt-4 border-t border-gray-400;
+}
