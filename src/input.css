@@ -240,274 +240,262 @@ html {
   @apply mt-4 pt-4 border-t border-gray-400;
 }
 /* Chapter 9 */
+    .baddie {
+        @apply flex flex-col min-h-screen font-sans bg-gradient-to-br from-primary-300 via-primary-300 to-accent-light;
+    }
 
-/* ==========================================================
-   🏗️ LAYOUT & STRUCTURE
-   ========================================================== */
-.baddie {
-  @apply bg-gray-50 text-gray-800 min-h-screen flex flex-col;
-}
+    .mine {
+        @apply bg-accent-light sticky top-0 left-0 w-full shadow-md z-50;
+    }
 
-.mine {
-  @apply sticky top-0 z-50 bg-primary-600 text-white shadow-lg;
-}
+    .headercontainer {
+        @apply mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-5;
+    }
 
-.headercontainer {
-  @apply container mx-auto px-6;
-}
+    .headerflex {
+        @apply flex flex-col lg:flex-row justify-between items-center gap-4;
+    }
 
-.headerflex {
-  @apply flex justify-between items-center py-4;
-}
+    .logosection {
+        @apply flex items-center gap-3;
+    }
 
-.minecontainer {
-  @apply container mx-auto px-6 py-12;
-}
+    .logocircol {
+        @apply w-12 h-12 sm:w-14 sm:h-14 bg-primary-600 rounded-full flex items-center justify-center shadow-md;
+    }
 
-.insection {
-  @apply mb-16;
-}
+    .logotext {
+        @apply text-2xl sm:text-3xl text-white;
+    }
 
-.objection {
-  @apply py-8;
-}
+    .titulo {
+        @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800;
+    }
 
-.contention {
-  @apply flex flex-col space-y-8;
-}
+    .main-nav {
+        @apply flex flex-wrap justify-center gap-2 lg:gap-3 font-bold;
+    }
 
-.mine-section {
-  @apply py-10 border-b border-primary-300;
-}
+    .nav-link {
+        @apply px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base font-medium text-gray-800 bg-white/50 rounded-lg shadow-sm;
+    }
 
-/* ==========================================================
-   🧠 HEADER & LOGO
-   ========================================================== */
-.logosection {
-  @apply flex items-center space-x-3;
-}
+    .nav-link:hover {
+        @apply bg-primary-700 text-white;
+    }
 
-.logocircol {
-  @apply w-10 h-10 rounded-full bg-accent-darker flex items-center justify-center text-white font-bold;
-}
+    .header-line {
+        @apply h-1 bg-gradient-to-r from-primary-600 to-accent-darker;
+    }
 
-.logotext {
-  @apply text-xl font-display font-semibold tracking-wide;
-}
+    .minecontainer {
+        @apply mx-auto px-4 lg:px-6 py-6 lg:py-8;
+    }
 
-.titulo {
-  @apply text-2xl font-display font-bold text-white;
-}
+    .insection {
+        @apply mx-5 mb-12 bg-white/70 rounded-3xl p-8 lg:p-10 shadow-xl border-2 border-primary-600/20;
+    }
 
-.main-nav {
-  @apply flex space-x-6;
-}
+    .pagetitle {
+        @apply text-3xl lg:text-4xl font-bold text-primary-700 mb-6 leading-tight;
+    }
 
-.nav-link {
-  @apply text-white/90 hover:text-white transition duration-300 font-medium;
-}
+    .intrograph {
+        @apply text-lg leading-relaxed text-gray-700 mb-8;
+    }
 
-.header-line {
-  @apply border-t border-primary-300 mt-3 opacity-60;
-}
+    .purposegrid {
+        @apply grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8;
+    }
 
-/* ==========================================================
-   🧾 TITLES & TYPOGRAPHY
-   ========================================================== */
-.pagetitle {
-  @apply text-4xl font-display font-bold text-primary-700 mb-4;
-}
+    .purposebox {
+        @apply rounded-2xl flex flex-col p-6 shadow-lg border-2 border-primary-600/30 bg-white;
+    }
 
-.intrograph {
-  @apply text-gray-700 leading-relaxed text-lg;
-}
+    .purposetitle {
+        @apply text-xl font-bold text-primary-700 mb-3;
+    }
 
-.sectionheader {
-  @apply text-3xl font-display font-semibold text-primary-700 mb-3;
-}
+    .objection {
+        @apply mx-5 mb-12 bg-white/70 rounded-3xl p-8 lg:p-10 shadow-xl border-2 border-primary-600/20;
+    }
 
-.section-tag {
-  @apply text-primary-600 uppercase tracking-wide text-sm font-semibold mb-1;
-}
+    .contention {
+        @apply mx-5 mb-12 bg-white/70 rounded-3xl p-8 lg:p-10 shadow-xl border-2 border-primary-600/20;
+    }
 
-.sectiontitle {
-  @apply text-2xl font-display font-bold mb-2 text-gray-800;
-}
+    .sectionheader {
+        @apply mb-8;
+    }
 
-.section-label {
-  @apply text-sm text-primary-600 font-semibold uppercase;
-}
+    .section-tag {
+        @apply inline-block px-4 py-2 bg-primary-700 text-white text-sm font-bold rounded-full mb-3;
+    }
 
-.section-heading {
-  @apply text-xl font-semibold text-gray-800 mb-2;
-}
+    .sectiontitle {
+        @apply text-2xl lg:text-3xl font-bold text-primary-700 leading-snug;
+    }
 
-.section-text {
-  @apply text-base text-gray-600 leading-relaxed;
-}
+    .obj-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+    }
 
-/* ==========================================================
-   🧱 GRID & CARDS
-   ========================================================== */
-.purposegrid {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-6 mt-6;
-}
+    .obj-card {
+        @apply bg-white rounded-2xl p-6 shadow-md border-2 border-primary-600/20 flex items-start gap-4;
+    }
 
-.purposebox {
-  @apply bg-white rounded-2xl p-6 shadow hover:shadow-lg transition;
-}
+    .obj-cardp {
+        @apply text-gray-700 leading-relaxed;
+    }
 
-.purposetitle {
-  @apply text-lg font-semibold text-primary-700 mb-2;
-}
+    .contents-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+    }
 
-.obj-grid {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
-}
+    .content-card {
+        @apply bg-white rounded-2xl p-6 shadow-md border-2 border-primary-600/20 relative block transition-all duration-300;
+    }
 
-.obj-card {
-  @apply bg-white rounded-xl p-6 shadow hover:-translate-y-1 hover:shadow-lg transition duration-300;
-}
+    .content-card:hover {
+        @apply shadow-xl border-primary-600 transform -translate-y-1;
+    }
 
-.obj-cardp {
-  @apply text-gray-600 text-base leading-relaxed;
-}
+    .content-num {
+        @apply inline-block px-3 py-1 bg-gradient-to-r from-primary-600 to-accent-darker text-white text-sm font-bold rounded-full mb-3;
+    }
 
-.contents-grid {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-6 mt-8;
-}
+    .content-title {
+        @apply text-xl font-bold text-primary-700 mb-2;
+    }
 
-.content-card {
-  @apply bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition;
-}
+    .content-desc {
+        @apply text-gray-600 mb-4;
+    }
 
-.content-num {
-  @apply text-primary-600 font-bold text-2xl mb-2;
-}
+    .content-arrow {
+        @apply absolute bottom-6 right-6 text-2xl text-primary-600 font-bold;
+    }
 
-.content-title {
-  @apply text-lg font-semibold text-gray-800 mb-1;
-}
+    .mine-section {
+        @apply mx-5 mb-12 bg-white/70 rounded-3xl p-8 lg:p-10 shadow-xl border-2 border-primary-600/20;
+    }
 
-.content-desc {
-  @apply text-gray-600 text-sm leading-relaxed;
-}
+    .section-label {
+        @apply inline-block px-4 py-2 bg-primary-700 text-white text-sm font-bold rounded-full mb-4;
+    }
 
-.content-arrow {
-  @apply mt-3 inline-flex items-center text-primary-600 hover:text-primary-700 transition;
-}
+    .section-heading {
+        @apply text-2xl lg:text-3xl font-bold text-primary-700 mb-5 leading-snug;
+    }
 
-/* ==========================================================
-   📰 ARTICLE / CONTENT LAYOUT
-   ========================================================== */
-.content-article {
-  @apply bg-white p-8 rounded-2xl shadow-md;
-}
+    .section-text {
+        @apply text-lg leading-relaxed text-gray-700 mb-8;
+    }
 
-.article-label {
-  @apply text-primary-600 uppercase text-sm font-semibold mb-2;
-}
+    .content-article {
+        @apply bg-white/80 rounded-2xl p-6 lg:p-8 mt-8 gap-2 flex flex-col border border-primary-600/20;
+    }
 
-.article-heading {
-  @apply text-2xl font-display font-semibold mb-4 text-gray-800;
-}
+    .article-label {
+        @apply inline-block px-3 py-1 bg-primary-700 text-white text-sm font-bold rounded-full mb-3 max-w-max;
+    }
 
-.article-text {
-  @apply text-gray-700 leading-relaxed;
-}
+    .article-heading {
+        @apply text-xl lg:text-2xl font-bold text-primary-700 mb-4 leading-snug;
+    }
 
-/* ==========================================================
-   ℹ️ INFORMATION BOXES
-   ========================================================== */
-.info-box {
-  @apply bg-gray-50 border-l-4 border-primary-600 p-6 rounded-lg shadow-sm;
-}
+    .article-text {
+        @apply text-base leading-relaxed text-gray-700 mb-6;
+    }
 
-.info-title {
-  @apply text-xl font-semibold text-primary-700 mb-3;
-}
+    .info-box {
+        @apply bg-white rounded-2xl p-6 border-2 border-primary-300/50 shadow-sm flex flex-col gap-2;
+    }
 
-.info-list {
-  @apply list-disc pl-6 space-y-2 text-gray-700;
-}
+    .info-title {
+        @apply text-lg font-bold text-primary-700 mb-4;
+    }
 
-.info-label {
-  @apply text-sm font-semibold text-primary-600 uppercase;
-}
+    .info-list {
+        @apply list-none p-0 m-0;
+    }
 
-.info-item {
-  @apply p-3 bg-gray-100 rounded-lg border-l-4 border-primary-600 text-gray-700 transition duration-500 hover:bg-primary-100;
-}
+    .info-label {
+        @apply font-bold p-3 tracking-wide text-white rounded-lg uppercase bg-gradient-to-r from-primary-600 to-accent-darker hover:from-primary-700 hover:to-accent-darker hover:shadow-md hover:scale-101 duration-500;
+    }
 
-/* ==========================================================
-   🧮 GRID LAYOUT VARIATIONS
-   ========================================================== */
-.grid-two {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
-}
+    .info-item {
+        @apply p-3 bg-gray-100 rounded-lg border-l-4 border-primary-600 text-gray-700 transition-all duration-300;
+    }
 
-.grid-three {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
-}
+    .requirement {
+        @apply italic text-gray-700 mb-4 p-4 bg-white/80 rounded-xl border-l-4 border-primary-600;
+    }
 
-.grid-four {
-  @apply grid grid-cols-1 md:grid-cols-4 gap-8;
-}
+    .grid-two {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+    }
 
-.grid-box {
-  @apply bg-white p-6 rounded-xl shadow hover:shadow-lg transition;
-}
+    .grid-three {
+        @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+    }
 
-.grid-title {
-  @apply text-lg font-semibold text-primary-700 mb-2;
-}
+    .grid-four {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4;
+    }
 
-/* ==========================================================
-   🧾 FOOTER SECTION
-   ========================================================== */
-.minefooter {
-  @apply bg-primary-700 text-white mt-16;
-}
+    .grid-box {
+        @apply bg-white rounded-2xl p-6 shadow-md border-2 border-primary-600/20;
+    }
 
-.footerline {
-  @apply border-t border-primary-300 opacity-50 my-6;
-}
+    .grid-title {
+        @apply text-lg font-bold text-primary-700 mb-2;
+    }
 
-.footercontainer {
-  @apply container mx-auto px-6 py-10;
-}
+    .minefooter {
+        @apply bg-accent-light shadow-2xl mt-12;
+    }
 
-.footercontent {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
-}
+    .footerline {
+        @apply h-1 bg-gradient-to-r from-primary-600 via-accent-darker to-accent-darker;
+    }
 
-.footercopyright {
-  @apply text-center text-sm text-white/80 mt-6;
-}
+    .footercontainer {
+        @apply mx-auto px-4 sm:px-6 lg:px-8 py-6;
+    }
 
-.footernames {
-  @apply text-sm font-semibold text-white/90;
-}
+    .footercontent {
+        @apply text-center;
+    }
 
-.footerinfo {
-  @apply space-y-2;
-}
+    .footercopyright {
+        @apply text-gray-800 font-semibold text-lg mb-2;
+    }
 
-.footerinfoh4 {
-  @apply text-lg font-semibold text-white mb-2;
-}
+    .footernames {
+        @apply flex justify-center gap-3 flex-wrap text-gray-700;
+    }
 
-.footerinfop {
-  @apply text-sm text-white/80 leading-relaxed;
-}
+    .footerinfo {
+        @apply mt-4 pt-4 border-t border-gray-400;
+    }
 
-/* ==========================================================
-   🔝 BACK-TO-TOP BUTTON
-   ========================================================== */
-.backtop {
-  @apply fixed bottom-6 right-6 bg-primary-600 text-white p-3 rounded-full shadow-lg hover:bg-primary-700 transition duration-300;
-}
+    .footerinfoh4 {
+        @apply text-gray-600 mb-2;
+    }
 
-.backtop-icon {
-  @apply w-5 h-5;
-}
+    .footerinfop {
+        @apply text-sm text-gray-600;
+    }
+
+    .backtop {
+        @apply fixed bottom-8 right-8 w-14 h-14 bg-primary-600 text-white rounded-full shadow-2xl flex items-center justify-center z-40 transition-all duration-300;
+    }
+
+    .backtop:hover {
+        @apply bg-primary-700 transform scale-110 shadow-xl;
+    }
+
+    .backtop-icon {
+        @apply text-2xl font-bold;
+    }
