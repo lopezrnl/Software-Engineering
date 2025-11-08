@@ -339,6 +339,84 @@ html {
 .footers2 {
   @apply mt-4 pt-4 border-t border-gray-400;
 }
+
+/* Joy */
+
+@layer components {
+ 
+  .bodydesign {
+    @apply m-0 font-[var(--font-body)] min-h-screen flex flex-col
+           bg-gradient-to-br from-[var(--color-accent-darker)]
+           via-[var(--color-primary-300)] to-[var(--color-accent-light)]
+           text-[#1e1e1e];
+  }
+  .main-wrapper {
+    @apply grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12;
+  }
+
+  .gradient-bar {
+    @apply h-1 bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-accent-darker)];
+  }
+
+ .navtext{
+        @apply px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base font-medium text-gray-800 bg-white/50 rounded-lg  hover:text-white hover:scale-105 transition-all duration-300 shadow-sm
+  }
+
+  .container {
+    @apply max-w-[1200px] mx-auto;
+  }
+
+  .card {
+    @apply bg-white/90 border-l-[6px] border-[var(--color-primary-600)]
+           rounded-2xl p-8 mb-10 text-justify
+           shadow-[0_4px_12px_rgba(0,0,0,0.15)]
+           transition-transform duration-300;
+  }
+
+  .card:hover {
+    @apply -translate-y-1 shadow-[0_6px_18px_rgba(109,40,217,0.3)];
+  }
+
+
+  .text-style {
+    @apply m-0 font-[Georgia,serif] leading-relaxed px-24 py-8 text-black bg-transparent;
+  }
+
+  .heading-style {
+    @apply font-[Poppins,sans-serif] text-[1.8rem] font-bold mt-8 mb-3 ;
+  }
+
+  .paragraph-style,
+  .list-item-style {
+    @apply text-base font-normal indent-8 mb-4;
+  }
+
+  .list-style {
+    @apply ml-8 list-disc;
+  }
+
+  .bold-style {
+    @apply font-bold;
+  }
+
+  .photos{
+    @apply block mx-auto max-w-full h-auto;
+  } 
+
+  .picgrid {
+  @apply bg-white rounded-2xl shadow-xl border border-purple-300 p-4 sm:p-6 lg:p-8 
+         max-w-[900px] text-center w-full sm:w-5/6 md:w-4/5 lg:w-3/4 mx-auto my-6 sm:my-8 lg:my-10;
+  }
+
+  .olAndli{
+  @apply list-decimal list-inside space-y-2 mb-4;
+  }
+
+
+
+}
+
+
 /* Chapter 9 */
     .baddie {
         @apply flex flex-col min-h-screen font-sans bg-gradient-to-br from-primary-300 via-primary-300 to-accent-light;
