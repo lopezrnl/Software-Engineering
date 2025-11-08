@@ -19,6 +19,189 @@
   --font-display: "Monsterrat", sans-serif;
   --font-body: "Lato", light;
 }
+@layer components {
+    .my-body{
+        @apply flex flex-col min-h-screen font-body bg-linear-to-br from-primary-300 via-primary-300 to-accent-light scroll-smooth
+    }
+    .my-header{
+        @apply bg-accent-light shadow-lg sticky top-0 z-50 backdrop-blur-sm 
+    }
+    .my-header-h2{
+        @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-display font-bold text-gray-800
+    }
+    .Header-2nd-div{
+        @apply w-12 h-12 sm:w-14 sm:h-14 bg-primary-700 rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300
+    }
+    .navtext{
+        @apply px-3 py-2 my-2 text-center sm:px-4 sm:py-2 text-sm sm:text-sm xl:text-base font-medium text-gray-800 bg-white/50 rounded-lg hover:bg-primary-700 hover:text-white hover:scale-105 transition-all duration-300 shadow-sm
+    }
+    .burger-1{
+        @apply absolute right-0 top-full mt-2 hidden peer-checked:block z-50 bg-white shadow-lg rounded-lg p-4 min-w-max
+    }
+    .first-section-first-article{
+        @apply bg-linear-to-r from-primary-600 to-accent-darker rounded-2xl shadow-2xl p-6 sm:p-8 lg:p-12 text-white
+    }
+    .first-section-first-h1{
+        @apply text-5xl sm:text-6xl lg:text-7xl font-display font-black mb-4 text-center
+    }
+    .first-section-second-h1{
+        @apply text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-center leading-tight
+    }
+    .second-section-first-article{
+        @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-primary-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500
+    }
+    .second-section-first-h3{
+        @apply text-2xl sm:text-3xl font-display font-bold text-primary-700 mb-6 pb-3 border-b-2 border-primary-300
+    }
+    .objective-bg{
+        @apply flex gap-3 p-4 bg-accent-light rounded-lg hover:bg-primary-300 transition-colors duration-300
+    }
+    .objective-check{
+        @apply text-primary-600 font-bold text-xl shrink-0
+    }
+    .content-box-aside{
+        @apply mt-8 p-6 bg-linear-to-br from-accent-light to-accent-darker rounded-xl border-2 border-primary-300 shadow-inner
+    }
+    .content-box{
+        @apply block p-3 bg-white/70 rounded-lg hover:bg-white hover:pl-6 hover:shadow-md transition-all duration-300
+    }
+    .Introduction-Section-article{
+        @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-accent-light hover:shadow-2xl hover:scale-[1.01] transition-all duration-500
+    }
+    .Introduction-Section-paragraph{
+        @apply text-base sm:text-lg text-gray-700 leading-relaxed mb-6
+    }
+    .Introduction-Section-Ordered-List{
+        @apply p-5 bg-linear-to-r from-purple-50 to-purple-100 rounded-lg border-l-4 border-primary-700 hover:shadow-lg transition-shadow duration-300
+    }
+    .Introduction-Section-Ordered-List-h4{
+        @apply font-bold text-primary-700 mb-2 text-lg
+    }
+    .System-Failures-Section-article{
+        @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-accent-light hover:shadow-2xl hover:scale-[1.01] transition-all duration-500
+    }
+    .System-Failures-Section-h4{
+        @apply font-bold text-primary-700 mb-3 text-lg flex items-center gap-2
+    }
+    .Grid-layout-for-failure-types{
+        @apply p-6 bg-accent-light rounded-xl border-2 border-primary-300 hover:shadow-lg hover:scale-105 transition-all duration-300
+    }
+    .Dependability-Properties-article{
+        @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-primary-300 hover:shadow-2xl hover:scale-[1.01] transition-all duration-500
+    }
+    .Dependability-Properties-h3{
+        @apply text-2xl sm:text-3xl font-display font-bold text-primary-700 mb-6 pb-3 border-b-2 border-primary-300
+    }
+    .Dependability-Diagram-aside{
+        @apply my-8 p-6 bg-linear-to-br from-accent-light via-accent-light to-primary-300 rounded-xl shadow-inner
+    }
+    .Dependability-Diagram-h4{
+        @apply text-center font-display font-bold text-xl text-primary-700 mb-6
+    }
+    .Dependability-Diagram{
+        @apply bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border-t-4
+    }
+    .Additional-Properties-Section-article{
+        @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-accent-light hover:shadow-2xl hover:scale-[1.01] transition-all duration-500
+    }
+    .Additional-Properties-Section-h4{
+        @apply text-xl sm:text-2xl font-display font-bold text-primary-700 mb-6
+    }
+    .Additional-Properties-Section{
+        @apply p-5 bg-linear-to-br from-accent-light to-white rounded-lg border-l-4 border-primary-700 hover:shadow-lg transition-shadow duration-300
+    }
+    .Developing-Dependable-Software-Section-article{
+        @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-accent-light hover:shadow-2xl hover:scale-[1.01] transition-all duration-500
+    }
+    .Developing-Dependable-Software-Section-fieldset{
+        @apply border-3  bg-primary-600 border-primary-600 m-5 shadow-2xl rounded-2xl
+    }
+    .Developing-Dependable-Software-Section{
+        @apply ml-7 border-3 text-primary-600  bg-white px-2.5 border-primary-600 rounded-full text-5xl
+    }
+    .Availability-and-Reliability{
+        @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-primary-300 hover:shadow-2xl hover:scale-[1.01] transition-all duration-500
+    }
+    .Availability-and-Reliability-h3{
+        @apply text-2xl sm:text-3xl font-display font-bold text-primary-700 mb-6 pb-3 border-b-2 border-primary-300
+    }
+    .Reliability-Terminology{
+        @apply bg-white p-5 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-primary-700
+    }
+    .Key-Definitions{
+        @apply p-6 bg-linear-to-br from-primary-300 to-accent-light rounded-xl shadow-md border-2 border-primary-600 hover:shadow-xl transition-all duration-300
+    }
+    .Key-Definitions-h4{
+        @apply font-bold text-primary-700 mb-3 text-xl flex items-center gap-2
+    }
+    .Three-Approaches{
+        @apply p-5 bg-linear-to-br from-accent-light to-white rounded-lg border-l-4 border-primary-700 hover:shadow-lg transition-all duration-300
+    }
+    .Safety-Critical-Software-Classes{
+        @apply p-6 bg-linear-to-br from-primary-300 to-accent-light rounded-xl shadow-md border-2 border-primary-700 hover:shadow-xl hover:scale-105 transition-all duration-300
+    }
+    .Reliability-Terminology-aside{
+        @apply my-8 p-6 bg-linear-to-br from-accent-light via-white to-primary-300 rounded-xl shadow-inner
+    }
+    .Reliability-Terminology-h4{
+        @apply text-center font-display font-bold text-xl text-purple-800 mb-6
+    }
+    .Reliability-Terminology-h5{
+        @apply font-bold text-primary-700 mb-2 text-lg
+    }
+    .Reliable-Systems-Unsafe{
+        @apply flex gap-3 p-4 bg-red-50 rounded-lg hover:bg-red-100 transition-colors duration-300
+    }
+    .Reliable-Systems-Unsafe-span{
+        @apply text-red-600 font-bold text-xl shrink-0
+    }
+    .Safety-Article{
+        @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-primary-300 hover:shadow-2xl hover:scale-[1.01] transition-all duration-500
+    }
+    .Safety-h3{
+        @apply text-2xl sm:text-3xl font-display font-bold text-primary-700 mb-6 pb-3 border-b-2 border-primary-300
+    }
+    .Safety-Assurance-Strategies-aside{
+        @apply mt-8 p-6 bg-linear-to-br from-accent-light via-white to-primary-300 rounded-xl border-2 border-primary-600
+    }
+    .Safety-Assurance-Strategies{
+        @apply bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300
+    }
+    .Safety-Assurance-Strategies-h5{
+        @apply font-bold text-green-700 mb-2
+    }
+    .Security-article{
+        @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-primary-300 hover:shadow-2xl hover:scale-[1.01] transition-all duration-500
+    }
+    .Security-h3{
+        @apply text-2xl sm:text-3xl font-display font-bold text-primary-700 mb-6 pb-3 border-b-2 border-primary-300
+    }
+    .Security-Terminology-aside{
+        @apply my-8 p-6 bg-linear-to-br from-accent-light via-primary-300 to-accent-darker rounded-xl shadow-inner
+    }
+    .Security-Terminology-h4{
+        @apply text-center font-display font-bold text-xl text-primary-700 mb-6
+    }
+    .Three-Main-Security-Threats-h5{
+        @apply font-bold text-primary-700 mb-3 text-lg flex items-center gap-2
+    }
+    .Security-Terminology{
+        @apply bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border-t-4
+    }
+    .Three-Main-Security-Threats{
+        @apply p-6 bg-linear-to-br from-accent-light to-primary-300 rounded-xl shadow-md border-2 border-primary-700 hover:shadow-xl hover:scale-105 transition-all duration-300
+    }
+    .Security-Controls{
+        @apply p-5 bg-linear-to-br from-accent-light to-white rounded-lg border-l-4 border-primary-700 hover:shadow-lg transition-all duration-300
+    }
+    .Final-Summary-Section-article{
+        @apply bg-linear-to-r from-primary-600 to-accent-darker rounded-xl shadow-2xl p-6 sm:p-8 text-white
+    }
+    .Final-Summary-Section{
+        @apply bg-white/10 backdrop-blur-sm p-5 rounded-lg hover:bg-white/20 transition-colors duration-300 
+    } 
+}
+
 
 /* === Base === */
 .page-body {
@@ -29,8 +212,15 @@ html {
   @apply scroll-smooth;
 }
 
-.scroll-up {
-  @apply fixed bottom-6 right-6 text-3xl bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300;
+
+.buttonwrap {
+    @apply fixed bottom-6 right-6 w-20 h-20 flex items-center justify-center;
+}
+.borderspin {
+    @apply absolute inset-0 rounded-full border-4 border-t-accent-darker border-b-accent-darker border-l-primary-700 border-r-primary-700 animate-spin;
+}
+.buttoninner {
+    @apply relative w-16 h-16 bg-accent-light dark:bg-primary-700 rounded-full shadow-lg flex items-center justify-center text-3xl text-white hover:bg-accent-light transition-colors duration-300;
 }
 
 /* === Header === */
@@ -60,21 +250,8 @@ html {
   @apply px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base font-body font-medium text-gray-800 bg-white/50 rounded-lg hover:bg-primary-700 hover:text-white hover:scale-105 transition-all duration-300 shadow-sm;
 }
 
-/* === Navigation Links with Hover Underline === */
-/* .nav-link {
-  @apply relative text-[#EBE0F5] transition-colors duration-300;
-}
-.nav-link::after {
-  content: "";
-  @apply absolute left-0 bottom-0 w-0 h-[2px] bg-[#A06EC4] transition-all duration-300;
-}
-.nav-link:hover {
-  @apply text-[#A06EC4];
-}
-.nav-link:hover::after {
-  @apply w-full;
-} */
 
+/* Chapter 9 */
 /* === Main Layout === */
 .main {
   @apply max-w-7xl mx-auto px-4 md:px-6 py-8;
@@ -134,7 +311,7 @@ html {
   @apply flex-col flex justify-center items-center my-4;
 }
 .banner-img {
-  @apply w-full max-w-[1000px] h-auto object-cover rounded-md shadow;
+  @apply w-full max-w-[1000px] h-50 rounded-md shadow;
 }
 .content-img {
   @apply w-full max-w-[700px] h-auto object-contain rounded-md shadow-sm;
@@ -240,3 +417,263 @@ html {
 }
 
 
+/* Chapter 9 */
+    .baddie {
+        @apply flex flex-col min-h-screen font-sans bg-gradient-to-br from-primary-300 via-primary-300 to-accent-light;
+    }
+
+    .mine {
+        @apply bg-accent-light sticky top-0 left-0 w-full shadow-md z-50;
+    }
+
+    .headercontainer {
+        @apply mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-5;
+    }
+
+    .headerflex {
+        @apply flex flex-col lg:flex-row justify-between items-center gap-4;
+    }
+
+    .logosection {
+        @apply flex items-center gap-3;
+    }
+
+    .logocircol {
+        @apply w-12 h-12 sm:w-14 sm:h-14 bg-primary-600 rounded-full flex items-center justify-center shadow-md;
+    }
+
+    .logotext {
+        @apply text-2xl sm:text-3xl text-white;
+    }
+
+    .titulo {
+        @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800;
+    }
+
+    .main-nav {
+        @apply flex flex-wrap justify-center gap-2 lg:gap-3 font-bold;
+    }
+
+    .nav-link {
+        @apply px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base font-medium text-gray-800 bg-white/50 rounded-lg shadow-sm;
+    }
+
+    .nav-link:hover {
+        @apply bg-primary-700 text-white;
+    }
+
+    .header-line {
+        @apply h-1 bg-gradient-to-r from-primary-600 to-accent-darker;
+    }
+
+    .minecontainer {
+        @apply mx-auto px-4 lg:px-6 py-6 lg:py-8;
+    }
+
+    .insection {
+        @apply mx-5 mb-12 bg-white/70 rounded-3xl p-8 lg:p-10 shadow-xl border-2 border-primary-600/20;
+    }
+
+    .pagetitle {
+        @apply text-3xl lg:text-4xl font-bold text-primary-700 mb-6 leading-tight;
+    }
+
+    .intrograph {
+        @apply text-lg leading-relaxed text-gray-700 mb-8;
+    }
+
+    .purposegrid {
+        @apply grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8;
+    }
+
+    .purposebox {
+        @apply rounded-2xl flex flex-col p-6 shadow-lg border-2 border-primary-600/30 bg-white;
+    }
+
+    .purposetitle {
+        @apply text-xl font-bold text-primary-700 mb-3;
+    }
+
+    .objection {
+        @apply mx-5 mb-12 bg-white/70 rounded-3xl p-8 lg:p-10 shadow-xl border-2 border-primary-600/20;
+    }
+
+    .contention {
+        @apply mx-5 mb-12 bg-white/70 rounded-3xl p-8 lg:p-10 shadow-xl border-2 border-primary-600/20;
+    }
+
+    .sectionheader {
+        @apply mb-8;
+    }
+
+    .section-tag {
+        @apply inline-block px-4 py-2 bg-primary-700 text-white text-sm font-bold rounded-full mb-3;
+    }
+
+    .sectiontitle {
+        @apply text-2xl lg:text-3xl font-bold text-primary-700 leading-snug;
+    }
+
+    .obj-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+    }
+
+    .obj-card {
+        @apply bg-white rounded-2xl p-6 shadow-md border-2 border-primary-600/20 flex items-start gap-4;
+    }
+
+    .obj-cardp {
+        @apply text-gray-700 leading-relaxed;
+    }
+
+    .contents-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+    }
+
+    .content-card {
+        @apply bg-white rounded-2xl p-6 shadow-md border-2 border-primary-600/20 relative block transition-all duration-300;
+    }
+
+    .content-card:hover {
+        @apply shadow-xl border-primary-600 transform -translate-y-1;
+    }
+
+    .content-num {
+        @apply inline-block px-3 py-1 bg-gradient-to-r from-primary-600 to-accent-darker text-white text-sm font-bold rounded-full mb-3;
+    }
+
+    .content-title {
+        @apply text-xl font-bold text-primary-700 mb-2;
+    }
+
+    .content-desc {
+        @apply text-gray-600 mb-4;
+    }
+
+    .content-arrow {
+        @apply absolute bottom-6 right-6 text-2xl text-primary-600 font-bold;
+    }
+
+    .mine-section {
+        @apply mx-5 mb-12 bg-white/70 rounded-3xl p-8 lg:p-10 shadow-xl border-2 border-primary-600/20;
+    }
+
+    .section-label {
+        @apply inline-block px-4 py-2 bg-primary-700 text-white text-sm font-bold rounded-full mb-4;
+    }
+
+    .section-heading {
+        @apply text-2xl lg:text-3xl font-bold text-primary-700 mb-5 leading-snug;
+    }
+
+    .section-text {
+        @apply text-lg leading-relaxed text-gray-700 mb-8;
+    }
+
+    .content-article {
+        @apply bg-white/80 rounded-2xl p-6 lg:p-8 mt-8 gap-2 flex flex-col border border-primary-600/20;
+    }
+
+    .article-label {
+        @apply inline-block px-3 py-1 bg-primary-700 text-white text-sm font-bold rounded-full mb-3 max-w-max;
+    }
+
+    .article-heading {
+        @apply text-xl lg:text-2xl font-bold text-primary-700 mb-4 leading-snug;
+    }
+
+    .article-text {
+        @apply text-base leading-relaxed text-gray-700 mb-6;
+    }
+
+    .info-box {
+        @apply bg-white rounded-2xl p-6 border-2 border-primary-300/50 shadow-sm flex flex-col gap-2;
+    }
+
+    .info-title {
+        @apply text-lg font-bold text-primary-700 mb-4;
+    }
+
+    .info-list {
+        @apply list-none p-0 m-0;
+    }
+
+    .info-label {
+        @apply font-bold p-3 tracking-wide text-white rounded-lg uppercase bg-gradient-to-r from-primary-600 to-accent-darker hover:from-primary-700 hover:to-accent-darker hover:shadow-md hover:scale-101 duration-500;
+    }
+
+    .info-item {
+        @apply p-3 bg-gray-100 rounded-lg border-l-4 border-primary-600 text-gray-700 transition-all duration-300;
+    }
+
+    .requirement {
+        @apply italic text-gray-700 mb-4 p-4 bg-white/80 rounded-xl border-l-4 border-primary-600;
+    }
+
+    .grid-two {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+    }
+
+    .grid-three {
+        @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+    }
+
+    .grid-four {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4;
+    }
+
+    .grid-box {
+        @apply bg-white rounded-2xl p-6 shadow-md border-2 border-primary-600/20;
+    }
+
+    .grid-title {
+        @apply text-lg font-bold text-primary-700 mb-2;
+    }
+
+    .minefooter {
+        @apply bg-accent-light shadow-2xl mt-12;
+    }
+
+    .footerline {
+        @apply h-1 bg-gradient-to-r from-primary-600 via-accent-darker to-accent-darker;
+    }
+
+    .footercontainer {
+        @apply mx-auto px-4 sm:px-6 lg:px-8 py-6;
+    }
+
+    .footercontent {
+        @apply text-center;
+    }
+
+    .footercopyright {
+        @apply text-gray-800 font-semibold text-lg mb-2;
+    }
+
+    .footernames {
+        @apply flex justify-center gap-3 flex-wrap text-gray-700;
+    }
+
+    .footerinfo {
+        @apply mt-4 pt-4 border-t border-gray-400;
+    }
+
+    .footerinfoh4 {
+        @apply text-gray-600 mb-2;
+    }
+
+    .footerinfop {
+        @apply text-sm text-gray-600;
+    }
+
+    .backtop {
+        @apply fixed bottom-8 right-8 w-14 h-14 bg-primary-600 text-white rounded-full shadow-2xl flex items-center justify-center z-40 transition-all duration-300;
+    }
+
+    .backtop:hover {
+        @apply bg-primary-700 transform scale-110 shadow-xl;
+    }
+
+    .backtop-icon {
+        @apply text-2xl font-bold;
+    }

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Testing | Software Engineering</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body class="baddie">
+    <header class="mine">
+        <section class="headercontainer">
+            <article class="headerflex">
+                <div class="logosection">
+                    <div class="logocircol">
+                        <span class="logotext">⚡</span>
+                    </div>
+                    <h2 class="titulo">Software Engineering</h2>
+                </div>
+                <nav class="main-nav">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="chapter2.html" class="nav-link">Software Processes</a>
+                    <a href="chapter8.html" class="nav-link">Testing</a>
+                    <a href="chapter9.html" class="nav-link">Evolution</a>
+                    <a href="chapter11.html" class="nav-link">Dependability</a>
+                </nav>
+            </article>
+        </section>
+        <section class="header-line"></section>
+    </header>
+
+    <main class="minecontainer">
+        <section class="objection">
+            <article>
+                <div class="sectionheader">
+                    <span class="section-tag">Chapter Goals</span>
+                    <h3 class="sectiontitle">Learning Objectives</h3>
+                </div>
+                <ul class="obj-grid">
+                    <li class="obj-card">
+                        <p class="obj-cardp">Understand the stages of testing from development to acceptance testing by
+                            system customers</p>
+                    </li>
+                    <li class="obj-card">
+                        <p class="obj-cardp">Learn techniques that help choose test cases geared to discovering program
+                            defects</p>
+                    </li>
+                    <li class="obj-card">
+                        <p class="obj-cardp">Master test-first development where you design tests before writing code
+                        </p>
+                    </li>
+                    <li class="obj-card">
+                        <p class="obj-cardp">Understand differences between development testing, test-driven
+                            development, release testing and user testing processes</p>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="contention grid-box">
+            <article>
+                <div class="sectionheader">
+                    <span class="section-tag">Contents</span>
+                </div>
+                <ul class="contents-grid">
+                    <li>
+                        <a href="#1" class="content-card">
+                            <div class="content-num">8.1</div>
+                            <h4 class="content-title">Development Testing</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#2" class="content-card">
+                            <div class="content-num">8.2</div>
+                            <h4 class="content-title">Test-Driven Development</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#3" class="content-card">
+                            <div class="content-num">8.3</div>
+                            <h4 class="content-title">Release Testing</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#4" class="content-card">
+                            <div class="content-num">8.4</div>
+                            <h4 class="content-title">User Testing</h4>
+                        </a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="insection">
+            <h1 class="pagetitle">Software Testing</h1>
+            <p class="intrograph">
+                Testing is intended to show that a program does what it is intended to do and to discover program
+                defects before it is put into use. When you test software, you execute a program using artificial data.
+                You check the results of the test run for errors, anomalies, or information about the program's
+                non-functional attributes.
+            </p>
+            <div class="purposegrid">
+                <label class="w-full">
+                    <input type="checkbox" class="hidden peer" />
+                    <div class=" peer-checked:hidden flex info-label flex justify-center py-17.5">Validation Testing</div>
+                    <div class="peer-checked:flex hidden purposebox">
+                        <h4 class="purposetitle">Validation Testing</h4>
+                        Demonstrate to the developer and customer that the software meets its requirements. Every requirement should have corresponding tests for verification.</div>
+                </label>
+
+                <label class="w-full">
+                    <input type="checkbox" class="hidden peer" />
+                    <div class=" peer-checked:hidden flex info-label flex justify-center py-17.5">Defect Testing</div>
+                    <div class="peer-checked:flex hidden purposebox">
+                        <h4 class="purposetitle">Defect Testing</h4>
+                        Discover situations where software behavior is incorrect, undesirable, or non-conformant. Root out crashes, unwanted interactions, and data corruption.</div>
+                </label>
+            </div>
+        </section>
+
+        <section id="1" class="mine-section">
+            <div class="section-label">8.1</div>
+            <h2 class="section-heading">Development Testing</h2>
+            <p class="section-text">
+                Development testing includes all testing activities carried out by the team developing the system. The
+                tester is usually the programmer who developed the software, though this varies by process and
+                criticality.
+            </p>
+
+            <article class="content-article">
+                <div class="article-label">8.1.1</div>
+                <h3 class="article-heading">Unit Testing</h3>
+                <p class="article-text">
+                    Unit testing is the process of testing program components such as methods or object classes.
+                    Individual functions or methods are the simplest components to test with different input parameters.
+                </p>
+                <div class="info-box">
+                    <h5 class="info-title">Object Testing Coverage</h5>
+                    <div class="info-item">Test all operations associated with the object</div>
+                    <div class="info-item">Set and check all attribute values</div>
+                    <div class="info-item">Put the object into all possible states</div>
+                </div>
+            </article>
+
+            <article class="content-article">
+                <div class="article-label">8.1.2</div>
+                <h3 class="article-heading">Choosing Unit Test Cases</h3>
+                <p class="article-text">
+                    Testing is expensive and time-consuming, so choosing effective test cases is crucial. Effectiveness
+                    means demonstrating proper functionality and revealing defects.
+                </p>
+                <div class="grid-two">
+                    <div class="grid-box">
+                        <h5 class="grid-title">Partition Testing</h5>
+                        <p>Identify groups of inputs with common characteristics that should be processed identically.
+                            Choose tests from within each group.</p>
+                    </div>
+                    <div class="grid-box">
+                        <h5 class="grid-title">Guideline-Based Testing</h5>
+                        <p>Use testing guidelines to choose test cases based on previous experience with common
+                            programming errors.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="content-article">
+                <div class="article-label">8.1.3</div>
+                <h3 class="article-heading">Component Testing</h3>
+                <p class="article-text">
+                    Software components are composite components made up of interacting objects. Testing should focus on
+                    the component interface behavior according to specifications.
+                </p>
+                <div class="grid-four">
+                    <div class="grid-box">
+                        <h5 class="grid-title">Parameter Interfaces</h5>
+                        <p>Data or function references passed between components</p>
+                    </div>
+                    <div class="grid-box">
+                        <h5 class="grid-title">Shared Memory</h5>
+                        <p>Memory blocks shared between subsystems</p>
+                    </div>
+                    <div class="grid-box">
+                        <h5 class="grid-title">Procedural Interfaces</h5>
+                        <p>Encapsulated procedures callable by other components</p>
+                    </div>
+                    <div class="grid-box">
+                        <h5 class="grid-title">Message Passing</h5>
+                        <p>Service requests via messages with return results</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="content-article">
+                <div class="article-label">8.1.4</div>
+                <h3 class="article-heading">System Testing</h3>
+                <p class="article-text">
+                    System testing involves integrating components to create a version of the system and testing the
+                    integrated system for compatibility, correct interaction, and proper data transfer.
+                </p>
+                <div class="info-box">
+                    <h5 class="info-title">Key Differences from Component Testing</h5>
+                    <div class="info-item">Includes reusable and off-the-shelf components integrated with new components
+                    </div>
+                    <div class="info-item">Involves collective testing by multiple team members or separate testing teams</div>
+                </div>
+            </article>
+        </section>
+
+        <section id="2" class="mine-section">
+            <div class="section-label">8.2</div>
+            <h2 class="section-heading">Test-Driven Development</h2>
+            <p class="section-text">
+                Test-driven development (TDD) is an approach where you interleave testing and code development. You
+                develop code incrementally with a test for each increment, not moving forward until the code passes its
+                test.
+            </p>
+
+            <article class="content-article">
+                <h4 class="article-heading">The TDD Process</h4>
+                <ol class="info-list">
+                    <li class="info-item">Identify small, implementable functionality increment</li>
+                    <li class="info-item">Write automated test for the functionality</li>
+                    <li class="info-item">Run test (it should fail initially)</li>
+                    <li class="info-item">Implement functionality and re-run test</li>
+                    <li class="info-item">Move to next increment when all tests pass</li>
+                </ol>
+            </article>
+
+            <article class="content-article">
+                <h4 class="article-heading">Benefits of Test-Driven Development</h4>
+                <div class="grid-four">
+                    <div class="grid-box">
+                        <h5 class="grid-title">Code Coverage</h5>
+                        <p>Every code segment has at least one test. Defects are discovered early as code is tested
+                            during writing.</p>
+                    </div>
+                    <div class="grid-box">
+                        <h5 class="grid-title">Regression Testing</h5>
+                        <p>Test suite develops incrementally. Run regression tests to check that changes haven't
+                            introduced new bugs.</p>
+                    </div>
+                    <div class="grid-box">
+                        <h5 class="grid-title">Simplified Debugging</h5>
+                        <p>When tests fail, the problem location is obvious. Check and modify newly written code without
+                            debugging tools.</p>
+                    </div>
+                    <div class="grid-box">
+                        <h5 class="grid-title">System Documentation</h5>
+                        <p>Tests act as documentation describing what the code should do. Reading tests helps understand
+                            the code.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="3" class="mine-section">
+            <div class="section-label">8.3</div>
+            <h2 class="section-heading">Release Testing</h2>
+            <p class="section-text">
+                Release testing is the process of testing a particular release of a system intended for use outside the
+                development team—for customers, users, or related development teams.
+            </p>
+            <article class="content-article">
+                <div class="article-label">8.3.1</div>
+                <h3 class="article-heading">Requirements-Based Testing</h3>
+                <p class="article-text">
+                    Requirements-based testing is a systematic approach where you consider each requirement and derive a
+                    set of tests for it. This is validation testing—demonstrating that the system properly implemented
+                    its requirements.
+                </p>
+                <div class="info-box">
+                    <h5 class="info-title">Example: Drug Allergy Checking</h5>
+                    <p class="requirement">If a patient is known to be allergic to any particular medication, then prescription of that medication shall result in a warning message being issued to the system user.</p>
+                    <label class="w-full">
+                        <input type="checkbox" class="hidden peer" />
+                        <div class=" peer-checked:hidden flex info-label">Test 1</div>
+                        <div class="peer-checked:flex hidden info-item">Patient with no allergies - Prescribe medication - No warning issued</div>
+                    </label>
+                    
+                    <label class="w-full">
+                        <input type="checkbox" class="hidden peer" />
+                        <div class=" peer-checked:hidden flex info-label">Test 2
+                        </div>
+                        <div class="peer-checked:flex hidden info-item">Patient with known allergy - Prescribe that medication - Warning issued</div>
+                    </label>
+
+                    <label class="w-full">
+                        <input type="checkbox" class="hidden peer" />
+                        <div class=" peer-checked:hidden flex info-label">Test 3</div>
+                        <div class="peer-checked:flex hidden info-item">Patient with multiple allergies - Prescribe each separately - Correct warnings</div>
+                    </label>
+
+                    <label class="w-full">
+                        <input type="checkbox" class="hidden peer" />
+                        <div class=" peer-checked:hidden flex info-label">Test 4
+                        </div>
+                        <div class="peer-checked:flex hidden info-item">Prescribe multiple allergen drugs - Two warnings issued correctly
+                        </div>
+                    </label>
+
+                    <label class="w-full">
+                        <input type="checkbox" class="hidden peer" />
+                        <div class=" peer-checked:hidden flex info-label">Test 5
+                        </div>
+                        <div class="peer-checked:flex hidden info-item">Override warning - System requires explanation from user
+                        </div>
+                    </label>
+                </div>
+            </article>
+
+            <article class="content-article">
+                <div class="article-label">8.3.2</div>
+                <h3 class="article-heading">Scenario Testing</h3>
+                <p class="article-text">
+                    Scenario testing involves devising typical usage scenarios to develop test cases. Scenarios are
+                    realistic stories that real users can relate to, often reused from requirements engineering.
+                </p>
+            </article>
+
+            <article class="content-article">
+                <div class="article-label">8.3.3</div>
+                <h3 class="article-heading">Performance Testing</h3>
+                <p class="article-text">
+                    Once a system is completely integrated, test for emergent properties like performance and
+                    reliability. Performance tests ensure the system can handle its intended load.
+                </p>
+                <div class="info-box">
+                    <h5 class="info-title">Stress Testing Approach</h5>
+                    <p>Make demands outside design limits to discover defects. For a system designed for 300
+                        transactions/second, gradually increase load beyond 300 until system fails.</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="4" class="mine-section">
+            <div class="section-label">8.4</div>
+            <h2 class="section-heading">User Testing</h2>
+            <p class="section-text">
+                User or customer testing is a stage where users provide input and advice on system testing. This is
+                essential because the user's working environment has major effects on reliability, performance,
+                usability, and robustness.
+            </p>
+            <article class="content-article">
+                <h4 class="article-heading">Types of User Testing</h4>
+                <div class="grid-three">
+                    <div class="grid-box">
+                        <h5 class="grid-title">Alpha Testing</h5>
+                        <p>Users work with the development team to test software at the developer's site. Gives users
+                            early information about new features and reduces risk of disruptive changes.</p>
+                    </div>
+                    <div class="grid-box">
+                        <h5 class="grid-title">Beta Testing</h5>
+                        <p>Early release made available for evaluation. Essential for products used in many environments
+                            to discover interaction problems. Also serves as marketing.</p>
+                    </div>
+                    <div class="grid-box">
+                        <h5 class="grid-title">Acceptance Testing</h5>
+                        <p>Customer formally tests system to decide on acceptance. Takes place after release testing.
+                            Acceptance implies payment should be made.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="content-article">
+                <h4 class="article-heading">Acceptance Testing Process</h4>
+                <label class="w-full">
+                    <input type="checkbox" class="hidden peer" />
+                    <div class=" peer-checked:hidden flex info-label">Define Acceptance Criteria
+                    </div>
+                    <div class="peer-checked:flex hidden info-item">Ideally early in process, part of system contract
+                    </div>
+                </label>
+
+                <label class="w-full">
+                    <input type="checkbox" class="hidden peer" />
+                    <div class=" peer-checked:hidden flex info-label">Plan Acceptance Testing
+                    </div>
+                    <div class="peer-checked:flex hidden info-item">Decide resources, time, budget, schedule, coverage
+                    </div>
+                </label>
+                
+                <label class="w-full">
+                    <input type="checkbox" class="hidden peer" />
+                    <div class=" peer-checked:hidden flex info-label">Derive Acceptance Tests
+                    </div>
+                    <div class="peer-checked:flex hidden info-item">Design tests for functional and non-functional characteristics
+                    </div>
+                </label>
+
+                <label class="w-full">
+                    <input type="checkbox" class="hidden peer" />
+                    <div class=" peer-checked:hidden flex info-label">Run Acceptance Tests
+                    </div>
+                    <div class="peer-checked:flex hidden info-item">Execute tests in actual or testing environment
+                    </div>
+                </label>
+
+                <label class="w-full">
+                    <input type="checkbox" class="hidden peer" />
+                    <div class=" peer-checked:hidden flex info-label">Negotiate Test Results
+                    </div>
+                    <div class="peer-checked:flex hidden info-item">Developer and customer negotiate whether system is good enough
+                    </div>
+                </label>
+
+                <label class="w-full">
+                    <input type="checkbox" class="hidden peer" />
+                    <div class=" peer-checked:hidden flex info-label">Reject/Accept System
+                    </div>
+                    <div class="peer-checked:flex hidden info-item">Decide on acceptance or require further development
+                    </div>
+                </label>
+            </article>
+        </section>
+    </main>
+
+    <footer class="minefooter">
+        <div class="footerline"></div>
+        <div class="footercontainer">
+            <div class="footercontent">
+                <p class="footercopyright">&copy; 2025 Group 8 All rights reserved.</p>
+                <div class="footernames">
+                    <p>ARIZALA, RON ANDREW |</p>
+                    <p>MANINGAT, NICOLL MITCH |</p>
+                    <p>LOPEZ, RANIEL CARL |</p>
+                    <p>DAYAO, BABY JOY</p>
+                </div>
+                <div class="footerinfo">
+                    <h4 class="footerinfoh4">Software Engineering</h4>
+                    <p class="footerinfop">Chapter 11 - Dependability and Security | Chapter 9 - Software Evolution |
+                        Chapter 8 - Software Testing | Chapter 2 - Software Processes</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="backtop">
+        <span class="backtop-icon">^</span>
+    </a>
+</body>
+
+</html>
