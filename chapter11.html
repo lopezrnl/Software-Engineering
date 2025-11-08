@@ -8,51 +8,90 @@
   
 
 </head>
-
-<!-- Make body a flex container and fill full height -->
-<body class="flex flex-col min-h-screen font-body bg-linear-to-br from-primary-300 via-primary-300 to-accent-light">
+<body class="my-body">
 
   <!-- HEADER -->
-  <header class="bg-accent-light shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
+  <header class="my-header">
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-5">
       <article class="flex flex-col lg:flex-row justify-between items-center gap-4">
         <!-- Logo Section -->
-        <div class="flex items-center gap-3 animate-fade-in">
-          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-primary-700 rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+        <div class="flex items-center gap-3">
+          <div class="Header-2nd-div">
             <span class="text-2xl sm:text-3xl">⚡</span>
           </div>
-          <h2 class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-display font-bold text-gray-800">
+          <h2 class="my-header-h2">
             Software Engineering
           </h2>
         </div>
 
+        
+
         <!-- Navigation -->
-        <nav class="flex flex-wrap justify-center gap-2 grid-cols-5 font-bold">
+         <div class="flex justify-end space-x-3 lg:flex-col text-center">
+        <nav class="flex flex-wrap justify-center items-center gap-2 grid-cols-5 font-bold">
           <a href="home.html" class="navtext">Home</a>
           <a href="chapter2.html" class="navtext">Software Processes</a>
           <a href="chapter8.html" class="navtext">Testing</a>
           <a href="chapter9.html" class="navtext">Evolution</a>
           <a href="chapter11.html" class="navtext">Dependability</a>
         </nav>
+
+        <div class="relative ">
+          <input type="checkbox" id="menu-toggle" class="hidden peer">
+          <label for="menu-toggle" class="cursor-pointer p-4 inline-block">
+            <div class="space-y-1.5">
+              <div class="w-6 h-0.5 bg-primary-600"></div>
+              <div class="w-6 h-0.5 bg-primary-600"></div>
+              <div class="w-6 h-0.5 bg-primary-600"></div>
+            </div>
+          </label>
+          <aside class="content-box-aside burger-1">
+            <h3 class="text-xl sm:text-2xl font-display font-bold text-primary-600 mb-4">Contents</h3>
+            <nav class="space-y-2">
+              <a href="#c11.1" class="block text-sm hover:text-primary-600">
+                <strong class="text-primary-600">11.1</strong>
+                <span class="text-gray-800 underline underline-offset-4">Dependability properties</span>
+              </a>
+              <a href="#c11.2" class="block text-sm hover:text-primary-600">
+                <strong class="text-primary-600">11.2</strong>
+                <span class="text-gray-800 underline underline-offset-4">Availability and reliability</span>
+              </a>
+              <a href="#c11.3" class="block text-sm hover:text-primary-600">
+                <strong class="text-primary-600">11.3</strong>
+                <span class="text-gray-800 underline underline-offset-4">Safety</span>
+              </a>
+              <a href="#c11.4" class="block text-sm hover:text-primary-600">
+                <strong class="text-primary-600">11.4</strong>
+                <span class="text-gray-800 underline underline-offset-4">Security</span>
+              </a>
+            </nav>
+          </aside>
+        </div>
+         </div>
+
+        
+        
     </article>
     </section>
     <div class="h-1 bg-linear-to-r from-primary-600 to-accent-darker"></div>
+    
   </header>
 
   <!-- MAIN CONTENT -->
   <main class="grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 bgp">
     <!-- Your main content here -->
+     
     <section class="mb-8 lg:mb-12 animate-slide-up">
-            <article class="bg-linear-to-r from-primary-600 to-accent-darker rounded-2xl shadow-2xl p-6 sm:p-8 lg:p-12 text-white">
-                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-black mb-4 text-center">11</h1>
+            <article class="first-section-first-article">
+                <h1 class="first-section-first-h1">11</h1>
                 <div class="h-1 w-24 sm:w-32 bg-white mx-auto mb-6"></div>
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-center leading-tight">Dependability and Security</h1>
+                <h1 class="first-section-second-h1">Dependability and Security</h1>
             </article>
     </section> 
      <!-- Objectives Section -->
     <section class="mb-8 lg:mb-12 animate-fade-in ">
-            <article class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-primary-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500">
-                <h3 class="text-2xl sm:text-3xl font-display font-bold text-primary-700 mb-6 pb-3 border-b-2 border-primary-300">Objectives</h3>
+            <article class="second-section-first-article">
+                <h3 class="second-section-first-h3">Objectives</h3>
                 <p class="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">The objective of this chapter is to introduce software dependability and security. When you have read this chapter, you will:</p>
                 
                 <!-- Grid Layout for objectives -->
@@ -76,7 +115,7 @@
                 </div>
 
                 <!-- Contents Box -->
-                <aside class="mt-8 p-6 bg-linear-to-br from-accent-light to-accent-darker rounded-xl border-2 border-primary-300 shadow-inner">
+                <aside class="content-box-aside">
                     <h3 class="text-xl sm:text-2xl font-display font-bold text-primary-600 mb-4">Contents</h3>
                     <nav class="space-y-2">
                         <a href="#c11.1" class="content-box">
@@ -98,7 +137,7 @@
 
      <!-- Introduction Section -->
     <section class="mb-8 lg:mb-12">
-            <article class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-accent-light hover:shadow-2xl hover:scale-[1.01] transition-all duration-500">
+            <article class="Introduction-Section-article">
                 <p class="Introduction-Section-paragraph">As computer systems have become deeply embedded in our business and personal lives, the problems that result from system and software failure are increasing. A failure of server software in an e-commerce company could lead to a major loss of revenue, and possibly also customers for that company. A software error in an embedded control system in a car could lead to expensive recalls of that model for repair and, in the worst case, could be a contributory factor in accidents.</p>
                 
                 <p class="Introduction-Section-paragraph">Because software-intensive systems are so important to governments, companies, and individuals, it is essential that widely used software is trustworthy. The term 'dependability' was proposed by Laprie (1995) to cover the related systems attributes of availability, reliability, safety, and security. The dependability of systems is now usually more important than their detailed functionality for the following reasons:</p>
@@ -130,13 +169,13 @@
 
         <!-- System Failures Section -->
         <section class="mb-8 lg:mb-12">
-            <article class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-accent-light hover:shadow-2xl hover:scale-[1.01] transition-all duration-500">
+            <article class="System-Failures-Section-article">
                 <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">When designing a dependable system, you therefore have to consider:</p>
 
                 <!-- Grid layout for failure types -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                     <article class="Grid-layout-for-failure-types">
-                        <h4 class="font-bold text-primary-700 mb-3 text-lg flex items-center gap-2">
+                        <h4 class="System-Failures-Section-h4">
                             <span class="text-2xl">⚠️</span>
                             Hardware Failure
                         </h4>
@@ -144,7 +183,7 @@
                     </article>
                     
                     <article class="Grid-layout-for-failure-types">
-                        <h4 class="font-bold text-primary-700 mb-3 text-lg flex items-center gap-2">
+                        <h4 class="System-Failures-Section-h4">
                             <span class="text-2xl">🐛</span>
                             Software Failure
                         </h4>
@@ -152,7 +191,7 @@
                     </article>
                     
                     <article class="Grid-layout-for-failure-types">
-                        <h4 class="font-bold text-primary-700 mb-3 text-lg flex items-center gap-2">
+                        <h4 class="System-Failures-Section-h4">
                             <span class="text-2xl">👤</span>
                             Operational Failure
                         </h4>
@@ -166,14 +205,14 @@
 
         <!-- Section 11.1 Dependability Properties -->
          <section id="c11.1" class="mb-8 lg:mb-12 scroll-mt-24">
-            <article class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-primary-300 hover:shadow-2xl hover:scale-[1.01] transition-all duration-500">
-                <h3 class="text-2xl sm:text-3xl font-display font-bold text-primary-700 mb-6 pb-3 border-b-2 border-primary-300">11.1 Dependability Properties</h3>
+            <article class="Dependability-Properties-article">
+                <h3 class="Dependability-Properties-h3">11.1 Dependability Properties</h3>
                 
                 <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">All of us are familiar with the problem of computer system failure. The dependability of a computer system is a property that reflects its trustworthiness. Trustworthiness essentially means the degree of confidence a user has that the system will operate as they expect.</p>
 
                 <!-- Dependability Diagram -->
-                <aside class="my-8 p-6 bg-linear-to-br from-accent-light via-accent-light to-primary-300 rounded-xl shadow-inner">
-                    <h4 class="text-center font-display font-bold text-xl text-primary-700 mb-6">Principal Dependability Properties</h4>
+                <aside class="Dependability-Diagram-aside">
+                    <h4 class="Dependability-Diagram-h4">Principal Dependability Properties</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <article class="Dependability-Diagram border-primary-700">
                             <h5 class="font-bold text-primary-700 mb-3 text-lg">Availability</h5>
@@ -203,8 +242,8 @@
         <!-- Additional Properties Section -->
 
         <section class="mb-8 lg:mb-12">
-            <article class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-accent-light hover:shadow-2xl hover:scale-[1.01] transition-all duration-500">
-                <h4 class="text-xl sm:text-2xl font-display font-bold text-primary-700 mb-6">Additional Dependability Properties</h4>
+            <article class="Additional-Properties-Section-article">
+                <h4 class="Additional-Properties-Section-h4">Additional Dependability Properties</h4>
                 
                 <div class="space-y-4">
                     <article class="Additional-Properties-Section">
@@ -234,31 +273,31 @@
         <!-- Developing Dependable Software Section -->
 
         <section class="mb-8 lg:mb-12">
-            <article class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-accent-light hover:shadow-2xl hover:scale-[1.01] transition-all duration-500">
+            <article class="Developing-Dependable-Software-Section-article">
                 <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">To develop dependable software, you therefore need to ensure that:</p>
 
-                <fieldset class="border-3  bg-primary-600 border-primary-600 m-5 shadow-2xl rounded-2xl ">
+                <fieldset class="Developing-Dependable-Software-Section-fieldset">
                     <legend class="Developing-Dependable-Software-Section">
                         1
                     </legend>
                     <p class="text-white leading-relaxed ml-22 mb-6">You avoid the introduction of accidental errors into the system during software specification and development.</p>
                 </fieldset>
 
-                <fieldset class="border-3 bg-primary-600 border-primary-600 m-5 rounded-2xl ">
+                <fieldset class="Developing-Dependable-Software-Section-fieldset">
                     <legend class="Developing-Dependable-Software-Section">
                         2
                     </legend>
                     <p class="text-white leading-relaxed ml-22 mb-6">You design verification and validation processes that are effective in discovering residual errors that affect the dependability of the system.</p>
                 </fieldset>
 
-                <fieldset class="border-3 bg-primary-600 border-primary-600 m-5 rounded-2xl ">
+                <fieldset class="Developing-Dependable-Software-Section-fieldset">
                     <legend class="Developing-Dependable-Software-Section">
                         3
                     </legend>
                     <p class="text-white leading-relaxed ml-22 mb-6">You design protection mechanisms that guard against external attacks that can compromise the availability or security of the system.</p>
                 </fieldset>
 
-                <fieldset class="border-3 bg-primary-600 border-primary-600 m-5 rounded-2xl ">
+                <fieldset class="Developing-Dependable-Software-Section-fieldset">
                     <legend class="Developing-Dependable-Software-Section">
                         4
                     </legend>
@@ -276,23 +315,23 @@
          <!-- Section 11.2 Availability and Reliability -->
 
         <section id="c11.2" class="mb-8 lg:mb-12 scroll-mt-24">
-            <article class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-primary-300 hover:shadow-2xl hover:scale-[1.01] transition-all duration-500">
-                <h3 class="text-2xl sm:text-3xl font-display font-bold text-primary-700 mb-6 pb-3 border-b-2 border-primary-300">11.2 Availability and Reliability</h3>
+            <article class="Availability-and-Reliability">
+                <h3 class="Availability-and-Reliability-h3">11.2 Availability and Reliability</h3>
                 
                 <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">System availability and reliability are closely related properties that can both be expressed as numerical probabilities. The availability of a system is the probability that the system will be up and running to deliver these services to users on request. The reliability of a system is the probability that the system's services will be delivered as defined in the system specification.</p>
 
                 <!-- Key Definitions -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 my-8">
-                    <article class="p-6 bg-linear-to-br from-primary-300 to-accent-light rounded-xl shadow-md border-2 border-primary-600 hover:shadow-xl transition-all duration-300">
-                        <h4 class="font-bold text-primary-700 mb-3 text-xl flex items-center gap-2">
+                    <article class="Key-Definitions">
+                        <h4 class="Key-Definitions-h4">
                             <span class="text-2xl">✅</span>
                             Reliability
                         </h4>
                         <p class="text-gray-700 leading-relaxed">The probability of failure-free operation over a specified time, in a given environment, for a specific purpose.</p>
                     </article>
                     
-                    <article class="p-6 bg-linear-to-br  from-primary-300 to-accent-light rounded-xl shadow-md border-2 border-primary-600 hover:shadow-xl transition-all duration-300">
-                        <h4 class="font-bold text-primary-700 mb-3 text-xl flex items-center gap-2">
+                    <article class="Key-Definitions">
+                        <h4 class="Key-Definitions-h4">
                             <span class="text-2xl">🔄</span>
                             Availability
                         </h4>
@@ -303,19 +342,19 @@
                 <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">Reliability and availability are closely related but sometimes one is more important than the other. A telephone exchange switch is an example where availability is more important than reliability. Users expect a dial tone when they pick up a phone, so the system has high availability requirements.</p>
 
                 <!-- Reliability Terminology -->
-                <aside class="my-8 p-6 bg-linear-to-br from-accent-light via-white to-primary-300 rounded-xl shadow-inner">
-                    <h4 class="text-center font-display font-bold text-xl text-purple-800 mb-6">Reliability Terminology</h4>
+                <aside class="Reliability-Terminology-aside">
+                    <h4 class="Reliability-Terminology-h4">Reliability Terminology</h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <article class="Reliability-Terminology">
-                            <h5 class="font-bold text-primary-700 mb-2 text-lg">Fault</h5>
+                            <h5 class="Reliability-Terminology-h5">Fault</h5>
                             <p class="text-gray-700 text-sm">A static software defect that can lead to a system failure</p>
                         </article>
                         <article class="Reliability-Terminology">
-                            <h5 class="font-bold text-primary-700 mb-2 text-lg">Error</h5>
+                            <h5 class="Reliability-Terminology-h5">Error</h5>
                             <p class="text-gray-700 text-sm">An incorrect system state that can lead to unexpected behavior</p>
                         </article>
                         <article class="Reliability-Terminology">
-                            <h5 class="font-bold text-primary-700 mb-2 text-lg">Failure</h5>
+                            <h5 class="Reliability-Terminology-h5">Failure</h5>
                             <p class="text-gray-700 text-sm">An observable incorrect system behavior</p>
                         </article>
                     </div>
@@ -349,8 +388,8 @@
         <!-- Section 11.3 Safety -->
 
         <section id="c11.3" class="mb-8 lg:mb-12 scroll-mt-24">
-            <article class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-primary-300 hover:shadow-2xl hover:scale-[1.01] transition-all duration-500">
-                <h3 class="text-2xl sm:text-3xl font-display font-bold text-primary-700 mb-6 pb-3 border-b-2 border-primary-300">11.3 Safety</h3>
+            <article class="Safety-Article">
+                <h3 class="Safety-h3">11.3 Safety</h3>
                 
                 <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">Safety-critical systems are systems where it is essential that system operation is always safe; that is, the system should never damage people or the system's environment even if the system fails. Examples include control and monitoring systems in aircraft, process control systems in chemical plants, and automobile control systems.</p>
 
@@ -397,7 +436,7 @@
                 </div>
 
                 <!-- Safety Assurance Strategies -->
-                <aside class="mt-8 p-6 bg-linear-to-br from-accent-light via-white to-primary-300 rounded-xl border-2 border-primary-600">
+                <aside class="Safety-Assurance-Strategies-aside">
                     <h4 class="text-xl font-bold text-green-800 mb-4">Three Ways to Assure Safety:</h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <article class="Safety-Assurance-Strategies">
@@ -419,8 +458,8 @@
 
         <!-- Section 11.4 Security -->
         <section id="c11.4" class="mb-8 lg:mb-12 scroll-mt-24">
-            <article class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8 border-2 border-primary-300 hover:shadow-2xl hover:scale-[1.01] transition-all duration-500">
-                <h3 class="text-2xl sm:text-3xl font-display font-bold text-primary-700 mb-6 pb-3 border-b-2 border-primary-300">11.4 Security</h3>
+            <article class="Security-article">
+                <h3 class="Security-h3">11.4 Security</h3>
                 
                 <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">Security is a system attribute that reflects the ability of the system to protect itself from external attacks, which may be accidental or deliberate. These external attacks are possible because most general-purpose computers are now networked and are therefore accessible by outsiders.</p>
 
@@ -429,8 +468,8 @@
                 </aside>
 
                 <!-- Security Terminology -->
-                <aside class="my-8 p-6 bg-linear-to-br from-accent-light via-primary-300 to-accent-darker rounded-xl shadow-inner">
-                    <h4 class="text-center font-display font-bold text-xl text-primary-700 mb-6">Key Security Concepts</h4>
+                <aside class="Security-Terminology-aside">
+                    <h4 class="Security-Terminology-h4">Key Security Concepts</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <article class="Security-Terminology border-primary-700">
                             <h5 class="font-bold text-primary-700 mb-2">Asset</h5>
@@ -456,7 +495,7 @@
                     <h4 class="text-xl font-bold text-primary-700 mb-4">Three Main Types of Security Threats:</h4>
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <article class="Three-Main-Security-Threats">
-                            <h5 class="font-bold text-primary-700 mb-3 text-lg flex items-center gap-2">
+                            <h5 class="Three-Main-Security-Threats-h5">
                                 <span class="text-2xl">🔐</span>
                                 Confidentiality Threats
                             </h5>
@@ -464,7 +503,7 @@
                         </article>
                         
                         <article class="Three-Main-Security-Threats">
-                            <h5 class="font-bold text-primary-700 mb-3 text-lg flex items-center gap-2">
+                            <h5 class="Three-Main-Security-Threats-h5">
                                 <span class="text-2xl">⚠️</span>
                                 Integrity Threats
                             </h5>
@@ -472,7 +511,7 @@
                         </article>
                         
                         <article class="Three-Main-Security-Threats">
-                            <h5 class="font-bold text-primary-700 mb-3 text-lg flex items-center gap-2">
+                            <h5 class="Three-Main-Security-Threats-h5">
                                 <span class="text-2xl">🚫</span>
                                 Availability Threats
                             </h5>
@@ -510,7 +549,7 @@
 
         <!-- Final Summary Section -->
         <section class="mb-8 lg:mb-12">
-            <article class="bg-linear-to-r from-primary-600 to-accent-darker rounded-xl shadow-2xl p-6 sm:p-8 text-white">
+            <article class="Final-Summary-Section-article">
                 <h3 class="text-2xl sm:text-3xl font-display font-bold mb-6 text-center">Key Takeaways</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="Final-Summary-Section">
