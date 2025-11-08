@@ -418,6 +418,27 @@ html {
 
 
 /* Chapter 9 */
+
+
+/* ==========================================================
+   🏗️ LAYOUT & STRUCTURE
+   ========================================================== */
+@import "tailwindcss";
+
+@theme {
+    --color-primary-300: #c4b5fd;
+    --color-primary-600: #7c3aed;
+    --color-primary-700: #6d28d9;
+
+    --color-accent-light: #d3c2e2;
+    --color-accent-darker: #84639f;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@layer components {
     .baddie {
         @apply flex flex-col min-h-screen font-sans bg-gradient-to-br from-primary-300 via-primary-300 to-accent-light;
     }
@@ -677,3 +698,4 @@ html {
     .backtop-icon {
         @apply text-2xl font-bold;
     }
+}
